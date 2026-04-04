@@ -6,6 +6,7 @@ class Inventory {
     addItem(id, qty) {
         if (this.items.some(item => item.id === id)) {
             this.items[this.items.findIndex(item => item.id === id)].qty += qty;
+            console.log("Sách đã được thêm vào kho.");
         } else {
             const newItem = new Item(id, qty);
             this.items.push(newItem);
@@ -30,6 +31,9 @@ class Inventory {
         const item = this.items.find(item => item.id === id);
         
         return item ? item.qty : 0;
+    }
+    getInventory() {
+        return this.items;
     }
 }
 

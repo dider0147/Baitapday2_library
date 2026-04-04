@@ -1,0 +1,17 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "title": "fffaf",
+      "author": "sdfsdfds",
+      "year": 2001,
+      "genre": "Fantasy"
+    }
+  ],
+  "inventory": [
+    {
+      "id": 1,
+      "qty": 1
+    }
+  ]
+}

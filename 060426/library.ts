@@ -106,6 +106,7 @@ class Library {
                 break;
             case "4":
                 this.displayLibraryData();
+                this.Menu();
                 break;
             case "5":
                 console.log("Thank you for using the Library Management System. Goodbye!");

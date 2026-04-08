@@ -1,14 +1,16 @@
 import { Product, type Category, type Size } from "./product.js";
-import Singleton from "./singleton.js";
+import { SingletonBase } from "./singleton.js";
 
-class ProductManager extends Singleton<ProductManager> {
+export class ProductManager extends SingletonBase {
     private static readonly THRESHOLD_QTY: number = 10;
 
     private products: Product[] = [];
+    private nextID: number = 1;
 
     public addProduct(name: string, size: Size, category: Category, price: number, qty: number): void {
-        const product = new Product(this.products.length + 1, name, size, category, price, qty);
+        const product = new Product(this.nextID, name, size, category, price, qty);
         this.products.push(product);
+        this.nextID++;
     }
 
     public ImportProduct(ID: number, qty: number, price: number): void {
@@ -48,9 +50,24 @@ class ProductManager extends Singleton<ProductManager> {
         product?.deactivateProduct();
     }
 
-    public findProductByID(ID: number): Product | undefined {
-        return this.products.find(p => p.getId() === ID);
-    }
+    public findProductByID = (ID: number): Product | undefined => this.products.find(p => p.getId() === ID);
 
-    public getProducts = (): Product[] => this.products;
+    public getAll = (): Product[] => this.products;
+
+    public getSaveData = (): ProductData =>  new ProductData(this.products, this.nextID);
+
+    public loadFromData(data: ProductData): void {
+        this.products = data.products;
+        this.nextID = data.nextID;
+    }
+}
+
+export class ProductData {
+    public products: Product[];
+    public nextID: number;
+
+    constructor(products: Product[], nextID: number) {
+        this.products = products;
+        this.nextID = nextID;
+    }
 }

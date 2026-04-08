@@ -1,12 +1,13 @@
-export default class Singleton<T> {
-  protected static instance: Singleton<any>;
+export abstract class SingletonBase {
+  private static _instances = new Map<any, any>();
 
-  protected constructor() {}
+  protected constructor() {
+  }
 
-  public static getInstance<T>(): Singleton<T> {
-    if (!Singleton.instance) {
-      Singleton.instance = new Singleton<T>();
+  public static getInstance<T extends SingletonBase>(this: any): T {
+    if (!SingletonBase._instances.has(this)) {
+      SingletonBase._instances.set(this, new this());
     }
-    return Singleton.instance;
+    return SingletonBase._instances.get(this);
   }
 }

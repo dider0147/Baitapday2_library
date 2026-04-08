@@ -17,6 +17,8 @@ export abstract class Person {
 
     public GetID = (): number => this.isID;
 
+    public GetPhone = (): string => this.phoneNumber;
+
     abstract getDisplayDetails(): string;
 
     abstract GetDiscountRate(): number;

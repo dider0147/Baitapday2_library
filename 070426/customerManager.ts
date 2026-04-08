@@ -1,12 +1,13 @@
-import { Customer } from "./customer.js";
+import { Customer, CustomerType } from "./customer.js";
 import { Gender } from "./person.js";
-import Singleton from "./singleton.js";
+import { SingletonBase } from "./singleton.js";
 
-export class CustomerManager extends Singleton<CustomerManager> {
+export class CustomerManager extends SingletonBase {
     private customers: Customer[] = [];
+    private nextID: number = 1;
 
-    public registerMember(name: string, phone: string, gender: Gender) {
-        const newCustomer = new Customer(this.customers.length + 1, name, phone, gender);
+    public addCustomer(name: string, phone: string, gender: Gender) {
+        const newCustomer = new Customer(this.nextID, name, phone, gender);
         this.customers.push(newCustomer);
     }
 
@@ -21,6 +22,27 @@ export class CustomerManager extends Singleton<CustomerManager> {
         customer.updatePoint(point);
     }
 
-    private findCustomerByID = (isID: number): Customer | undefined=>
-        this.customers.find(c => c.GetID() === isID);
+    private findCustomerByID = (isID: number): Customer | undefined => this.customers.find(c => c.GetID() === isID);
+
+    public findCustomerByPhone = (phone: string): Customer | undefined => this.customers.find(c => c.GetPhone() === phone);
+
+    public getCustomersByType = (type: CustomerType): Customer[] => this.customers.filter(c => c.getType() === type);
+
+    public getAll = (): Customer[] => this.customers;
+
+    public getSaveData = (): CustomerData => new CustomerData(this.customers, this.nextID);;
+
+    public loadFromData(data: CustomerData) {
+        this.customers = data.customers;
+        this.nextID = data.nextID;
+    }
+}
+
+export class CustomerData{
+    public customers: Customer[];
+    public nextID: number;
+    constructor(customers: Customer[], nextID: number) {
+        this.customers = customers;
+        this.nextID = nextID;
+    }
 }

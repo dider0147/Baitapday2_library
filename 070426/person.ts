@@ -15,6 +15,8 @@ export abstract class Person {
 
     public GetBasicContact = (): string => `${this.name} - ${this.phoneNumber}`;
 
+    public GetID = (): number => this.isID;
+
     abstract getDisplayDetails(): string;
 
     abstract GetDiscountRate(): number;

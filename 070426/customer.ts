@@ -11,8 +11,8 @@ export class Customer extends Person {
     constructor(isID:number, name:string, phone: string, gender: Gender) {
         super(isID, name, phone, gender);
     }
-    public getDisplayDetails = (): string =>
-         `[CUSTOMER] Name: ${this.name} | Phone: ${this.phoneNumber} | Points: ${this.point}`;
+    public getDisplayDetails = (): string => `[CUSTOMER] Name: ${this.name} | Phone: ${this.phoneNumber} | Points: ${this.point}`;
+
     public GetDiscountRate(): number {
         if (this.point >= this.VIP_MEMBER) return 0.25;
         else if (this.point >= this.GOLD_MEMBER) return 0.15;
@@ -20,6 +20,7 @@ export class Customer extends Person {
         else if (this.point >= this.BRONZE_MEMBER) return 0.05;
         else return 0;
     }
+    
     public updatePoint(point: number): void {
         this.point += point;
     }

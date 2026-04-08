@@ -1,5 +1,4 @@
 import { CustomerData, CustomerManager } from "./customerManager.js";
-import { Order } from "./order.js";
 import { OrderData, OrderManager } from "./orderManager.js";
 import { ProductData, ProductManager } from "./productManager.js";
 import { SingletonBase } from "./singleton.js";

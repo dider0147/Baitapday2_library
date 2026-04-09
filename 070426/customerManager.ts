@@ -22,7 +22,7 @@ export class CustomerManager extends SingletonBase {
         customer.updatePoint(point);
     }
 
-    private findCustomerByID = (isID: number): Customer | undefined => this.customers.find(c => c.GetID() === isID);
+    public findCustomerByID = (isID: number): Customer | undefined => this.customers.find(c => c.GetID() === isID);
 
     public findCustomerByPhone = (phone: string): Customer | undefined => this.customers.find(c => c.GetPhone() === phone);
 

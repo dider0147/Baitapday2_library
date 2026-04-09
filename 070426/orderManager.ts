@@ -1,12 +1,12 @@
-import { Order } from "./order.js";
+import { Order, TemptOrderData } from "./order.js";
 import { SingletonBase } from "./singleton.js";
 
 export class OrderManager extends SingletonBase {
     private orders: Order[] = [];
     private nextOrderID: number = 1;
 
-    public createOrder(staffID: number, ctID: number, pID: number, qty: number, price: number, sub: number, dis: number) {
-        const newOrder = new Order(this.nextOrderID, staffID, ctID, pID, qty, price, sub, dis);
+    public createOrder(data: TemptOrderData) {
+        const newOrder = new Order(this.nextOrderID, data);
         this.orders.push(newOrder);
         this.nextOrderID++;
     }

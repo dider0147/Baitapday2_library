@@ -43,5 +43,6 @@ export class Product {
   public getId = (): number => this.id;
   public getStock = (): number => this.qty;
   public getDeactivateStatus = (): boolean => this.isDeactivate;
+  public getImpotPrice = (): number => this.priceImport;
 }
 

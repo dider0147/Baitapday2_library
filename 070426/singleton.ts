@@ -1,13 +1,14 @@
 export abstract class SingletonBase {
-  private static _instances = new Map<any, any>();
+  private static instances: Map<Function, any> = new Map();
 
-  protected constructor() {
+  public constructor() {
   }
 
-  public static getInstance<T extends SingletonBase>(this: any): T {
-    if (!SingletonBase._instances.has(this)) {
-      SingletonBase._instances.set(this, new this());
+  public static getInstance<T extends SingletonBase>(this: new () => T): T {
+    const targetClass = this;
+    if (!SingletonBase.instances.has(targetClass)) {
+      SingletonBase.instances.set(targetClass, new targetClass());
     }
-    return SingletonBase._instances.get(this);
+    return SingletonBase.instances.get(targetClass);
   }
 }

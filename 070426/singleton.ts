@@ -1,7 +1,7 @@
 export abstract class SingletonBase {
   private static instances: Map<Function, any> = new Map();
 
-  public constructor() {
+  protected constructor() {
   }
 
   public static getInstance<T extends SingletonBase>(this: new () => T): T {

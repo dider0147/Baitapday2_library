@@ -6,6 +6,10 @@ export class CustomerManager extends SingletonBase {
     private customers: Customer[] = [];
     private nextID: number = 1;
 
+    public constructor() {
+        super();
+    }
+
     public addCustomer(name: string, phone: string, gender: Gender) {
         const newCustomer = new Customer(this.nextID, name, phone, gender);
         this.customers.push(newCustomer);

@@ -1,4 +1,4 @@
-import { Product, type Category, type Size } from "./product.js";
+import { Product, TempProductData, type Category, type Size } from "./product.js";
 import { SingletonBase } from "./singleton.js";
 
 export class ProductManager extends SingletonBase {
@@ -7,8 +7,12 @@ export class ProductManager extends SingletonBase {
     private products: Product[] = [];
     private nextID: number = 1;
 
-    public addProduct(name: string, size: Size, category: Category, price: number, qty: number): void {
-        const product = new Product(this.nextID, name, size, category, price, qty);
+    public constructor() {
+        super();
+    }
+
+    public addProduct(data: TempProductData): void {
+        const product = new Product(this.nextID, data);
         this.products.push(product);
         this.nextID++;
     }

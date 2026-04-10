@@ -10,13 +10,13 @@ export class Product {
   private qty: number;
   private isDeactivate: boolean;
 
-  constructor(id: number, name: string, size: Size, category: Category, price: number, qty: number) {
+  constructor(id: number, data: TempProductData) {
     this.id = id;
-    this.name = name;
-    this.size = size;
-    this.category = category;
-    this.priceImport = price;
-    this.qty = qty;
+    this.name = data.name;
+    this.size = data.size;
+    this.category = data.category;
+    this.priceImport = data.priceImport;
+    this.qty = data.qty;
     this.isDeactivate = false;
   }
 
@@ -45,4 +45,19 @@ export class Product {
   public getDeactivateStatus = (): boolean => this.isDeactivate;
   public getImpotPrice = (): number => this.priceImport;
 }
+export class TempProductData {
+  public name: string;
+  public size: Size;
+  public category: Category;
+  public priceImport: number;
+  public qty: number;
 
+  constructor(name: string, size: Size, category: Category, price: number, qty: number) {
+    this.name = name;
+    this.size = size;
+    this.category = category;
+    this.priceImport = price;
+    this.qty = qty;
+  }
+
+}

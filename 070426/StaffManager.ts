@@ -6,9 +6,13 @@ export class StaffManager extends SingletonBase {
     private staffs: Staff[] = [];
     private nextID: number = 1;
 
+    public constructor() {
+        super();
+    }
+
     public addStaff(name: string, phone: string, gender: Gender, role: StaffRole, salary: number) {
         const newStaff = new Staff(this.nextID ,name, phone, gender, role, salary)
-        this.staffs.push();
+        this.staffs.push(newStaff);
         this.nextID++;
     }
 

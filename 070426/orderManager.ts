@@ -5,6 +5,10 @@ export class OrderManager extends SingletonBase {
     private orders: Order[] = [];
     private nextOrderID: number = 1;
 
+    public constructor() {
+        super();
+    }
+
     public createOrder(data: TemptOrderData) {
         const newOrder = new Order(this.nextOrderID, data);
         this.orders.push(newOrder);
@@ -13,6 +17,8 @@ export class OrderManager extends SingletonBase {
     public deleteOrder(orderID: number) {
         this.orders = this.orders.filter(o => o.getID() != orderID);
     }
+
+    public findOrderByID = (orderID: number) => this.orders.find(o => o.getID() === orderID);
 
     public getSaveData = (): OrderData => new OrderData(this.orders, this.nextOrderID);
 

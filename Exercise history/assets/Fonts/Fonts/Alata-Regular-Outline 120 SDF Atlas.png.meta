@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "9a55116e-2645-4300-bbc7-74d3fbfc13a6",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 2048,
+  "height": 2048,
+  "platformSettings": {},
+  "subMetas": {
+    "Alata-Regular-Outline 120 SDF Atlas": {
+      "ver": "1.0.6",
+      "uuid": "6d894cca-a6b9-4a85-a5fa-d97075b1c35b",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "9a55116e-2645-4300-bbc7-74d3fbfc13a6",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": -10,
+      "trimX": 25,
+      "trimY": 32,
+      "width": 1998,
+      "height": 2004,
+      "rawWidth": 2048,
+      "rawHeight": 2048,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

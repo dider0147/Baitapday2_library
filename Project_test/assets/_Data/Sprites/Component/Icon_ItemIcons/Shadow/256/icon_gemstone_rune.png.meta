@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "359f6500-dd5a-4924-91e3-dc19d496e913",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 256,
+  "height": 256,
+  "platformSettings": {},
+  "subMetas": {
+    "icon_gemstone_rune": {
+      "ver": "1.0.6",
+      "uuid": "f15a0607-cecc-436c-940a-316e75bb7f05",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "359f6500-dd5a-4924-91e3-dc19d496e913",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0.5,
+      "offsetY": -5.5,
+      "trimX": 44,
+      "trimY": 33,
+      "width": 169,
+      "height": 201,
+      "rawWidth": 256,
+      "rawHeight": 256,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

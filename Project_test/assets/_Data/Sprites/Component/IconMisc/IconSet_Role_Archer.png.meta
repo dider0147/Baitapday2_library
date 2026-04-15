@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "13151373-e85e-4145-b35c-babdd50248f5",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 79,
+  "height": 79,
+  "platformSettings": {},
+  "subMetas": {
+    "IconSet_Role_Archer": {
+      "ver": "1.0.6",
+      "uuid": "c5f5de7d-0e16-4b21-b26b-f4b5226c8435",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "13151373-e85e-4145-b35c-babdd50248f5",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 79,
+      "height": 79,
+      "rawWidth": 79,
+      "rawHeight": 79,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

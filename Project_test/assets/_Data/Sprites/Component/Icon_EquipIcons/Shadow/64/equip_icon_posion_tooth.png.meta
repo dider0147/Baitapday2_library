@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "ae389f2f-de4a-4d77-a2c1-ba4019f6db88",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 64,
+  "height": 64,
+  "platformSettings": {},
+  "subMetas": {
+    "equip_icon_posion_tooth": {
+      "ver": "1.0.6",
+      "uuid": "2a8c90b5-b870-44c0-adb1-7f04708d714a",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "ae389f2f-de4a-4d77-a2c1-ba4019f6db88",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": -2,
+      "trimX": 12,
+      "trimY": 8,
+      "width": 40,
+      "height": 52,
+      "rawWidth": 64,
+      "rawHeight": 64,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

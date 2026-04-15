@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "72adc536-c9d2-4211-a031-cad97ead510a",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 54,
+  "height": 48,
+  "platformSettings": {},
+  "subMetas": {
+    "function_icon_newspaper": {
+      "ver": "1.0.6",
+      "uuid": "d55511e6-a505-4877-ab4c-859ed2749eaf",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "72adc536-c9d2-4211-a031-cad97ead510a",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 54,
+      "height": 48,
+      "rawWidth": 54,
+      "rawHeight": 48,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

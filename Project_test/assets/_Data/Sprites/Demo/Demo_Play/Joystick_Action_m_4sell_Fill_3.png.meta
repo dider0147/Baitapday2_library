@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "e2d0edcd-53fe-4d10-86d7-3630e9ab579d",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 98,
+  "height": 23,
+  "platformSettings": {},
+  "subMetas": {
+    "Joystick_Action_m_4sell_Fill_3": {
+      "ver": "1.0.6",
+      "uuid": "23fc1348-8153-476e-bb9c-ce79797b0e07",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "e2d0edcd-53fe-4d10-86d7-3630e9ab579d",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 98,
+      "height": 23,
+      "rawWidth": 98,
+      "rawHeight": 23,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

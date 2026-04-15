@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "b340c14b-4e5d-425f-ad32-7cbf930aa1bc",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 322,
+  "height": 288,
+  "platformSettings": {},
+  "subMetas": {
+    "Chest_Open_SparklingCoin_s_04": {
+      "ver": "1.0.6",
+      "uuid": "5d3263de-850a-4b6d-80cf-64a1d8e052ad",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "b340c14b-4e5d-425f-ad32-7cbf930aa1bc",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 322,
+      "height": 288,
+      "rawWidth": 322,
+      "rawHeight": 288,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

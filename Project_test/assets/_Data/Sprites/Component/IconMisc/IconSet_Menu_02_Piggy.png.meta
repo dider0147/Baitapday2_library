@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "6179eb74-9ed2-49ca-9fb9-de3dda9b75b7",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 144,
+  "height": 107,
+  "platformSettings": {},
+  "subMetas": {
+    "IconSet_Menu_02_Piggy": {
+      "ver": "1.0.6",
+      "uuid": "0f68a118-ad87-4ecf-a784-b2254535eb9d",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "6179eb74-9ed2-49ca-9fb9-de3dda9b75b7",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 144,
+      "height": 107,
+      "rawWidth": 144,
+      "rawHeight": 107,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

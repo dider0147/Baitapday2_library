@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "a87b118c-4daa-4ccf-95fc-5a24c3c91eb5",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 64,
+  "height": 64,
+  "platformSettings": {},
+  "subMetas": {
+    "icon_food_mushroom": {
+      "ver": "1.0.6",
+      "uuid": "57c3b82a-0343-4063-b8db-4fc2be16b76a",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "a87b118c-4daa-4ccf-95fc-5a24c3c91eb5",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": -1.5,
+      "trimX": 4,
+      "trimY": 6,
+      "width": 56,
+      "height": 55,
+      "rawWidth": 64,
+      "rawHeight": 64,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

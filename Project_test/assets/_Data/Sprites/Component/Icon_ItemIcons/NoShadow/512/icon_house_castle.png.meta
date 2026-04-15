@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "95416200-6dd6-4629-98aa-e71260fe67a0",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 512,
+  "height": 512,
+  "platformSettings": {},
+  "subMetas": {
+    "icon_house_castle": {
+      "ver": "1.0.6",
+      "uuid": "e35ae48d-48d4-4807-a129-8370ccc4ab0b",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "95416200-6dd6-4629-98aa-e71260fe67a0",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -0.5,
+      "offsetY": 0.5,
+      "trimX": 67,
+      "trimY": 72,
+      "width": 377,
+      "height": 367,
+      "rawWidth": 512,
+      "rawHeight": 512,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

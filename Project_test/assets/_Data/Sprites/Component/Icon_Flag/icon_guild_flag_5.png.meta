@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "0d6537e6-9362-47fd-bbac-cdbea4a1052d",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 361,
+  "height": 294,
+  "platformSettings": {},
+  "subMetas": {
+    "icon_guild_flag_5": {
+      "ver": "1.0.6",
+      "uuid": "f3710d19-78eb-4635-b748-f04e66686b87",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "0d6537e6-9362-47fd-bbac-cdbea4a1052d",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 361,
+      "height": 294,
+      "rawWidth": 361,
+      "rawHeight": 294,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

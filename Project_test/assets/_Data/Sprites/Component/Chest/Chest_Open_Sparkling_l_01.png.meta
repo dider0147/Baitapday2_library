@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "c9ca4815-d96c-4fdb-a71d-eaeed2d343bc",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 1255,
+  "height": 1035,
+  "platformSettings": {},
+  "subMetas": {
+    "Chest_Open_Sparkling_l_01": {
+      "ver": "1.0.6",
+      "uuid": "bcc5ac05-082b-4e5e-8e13-5d499cd230c3",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "c9ca4815-d96c-4fdb-a71d-eaeed2d343bc",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 1255,
+      "height": 1035,
+      "rawWidth": 1255,
+      "rawHeight": 1035,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

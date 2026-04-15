@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "f027c29e-e042-40fe-9ec2-0228ef35c200",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 532,
+  "height": 105,
+  "platformSettings": {},
+  "subMetas": {
+    "Title_Flag_01_Shadow_White_InnerBg": {
+      "ver": "1.0.6",
+      "uuid": "6737d6b5-b714-4860-a75e-43c833ab284e",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "f027c29e-e042-40fe-9ec2-0228ef35c200",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 532,
+      "height": 105,
+      "rawWidth": 532,
+      "rawHeight": 105,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

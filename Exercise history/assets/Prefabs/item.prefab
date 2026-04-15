@@ -13,7 +13,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "item",
+    "_name": "item copy",
     "_objFlags": 0,
     "_parent": null,
     "_children": [
@@ -49,14 +49,14 @@
     "_anchorPoint": {
       "__type__": "cc.Vec2",
       "x": 0.5,
-      "y": 0.5
+      "y": 1
     },
     "_trs": {
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
         0,
-        -35,
+        -1475,
         0,
         0,
         0,
@@ -113,14 +113,14 @@
     "_anchorPoint": {
       "__type__": "cc.Vec2",
       "x": 0.5,
-      "y": 0.5
+      "y": 1
     },
     "_trs": {
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
         -147.844,
-        0,
+        -11,
         0,
         0,
         0,
@@ -220,14 +220,14 @@
     "_anchorPoint": {
       "__type__": "cc.Vec2",
       "x": 0.5,
-      "y": 0.5
+      "y": 1
     },
     "_trs": {
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
         31.125,
-        0,
+        -9,
         0,
         0,
         0,
@@ -266,13 +266,15 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "Asmodeus",
-    "_N$string": "Asmodeus",
+    "_string": "Bot",
+    "_N$string": "Bot",
     "_fontSize": 40,
     "_lineHeight": 40,
     "_enableWrapText": true,
-    "_N$file": null,
-    "_isSystemFontUsed": true,
+    "_N$file": {
+      "__uuid__": "c1cc119c-beed-4c5c-a982-e79dd5437236"
+    },
+    "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
     "_styleFlags": 0,
@@ -311,7 +313,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "6f91e97b-b67e-4604-8958-935d65672d12"
+      "__uuid__": "65da1d8a-c752-4c38-aef1-db94ae3bc17f"
     },
     "_type": 1,
     "_sizeMode": 0,

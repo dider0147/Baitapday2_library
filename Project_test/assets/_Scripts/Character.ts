@@ -30,6 +30,9 @@ export default class NewClass extends cc.Component {
 
     private isMoving = false;
 
+    private limitAreaX = 0;
+    private limitAreaY = 0;
+
     // LIFE-CYCLE CALLBACKS:
 
     onLoad () {
@@ -38,6 +41,10 @@ export default class NewClass extends cc.Component {
         }
         this.isLeftFace = this.anim!.node.scaleX > 0 ? false : true;
         this.currentEnergy = this.MAX_ENERGY;
+        this.limitAreaX = this.node.parent.getComponent(cc.Canvas).designResolution.width/2;
+        console.log("relution x: " + this.limitAreaX);
+        this.limitAreaY = this.node.parent.getComponent(cc.Canvas).designResolution.height/2;
+        console.log("relution y: " + this.limitAreaY);
     }   
 
     update(dt: number): void {
@@ -49,7 +56,10 @@ export default class NewClass extends cc.Component {
         this.currentDuration -= dt;
         let pos = this.node.position;
         pos = new cc.Vec3(pos.x + this.movement.x * dt * this.speed, pos.y + this.movement.y * dt * this.speed, 0);
-        this.node.position = pos;
+        if (pos.x < this.limitAreaX && pos.x > -this.limitAreaX && pos.y < this.limitAreaY && pos.y > -this.limitAreaY) {
+            this.node.position = pos;
+        }
+        
         if (this.isMoving) {
             if (!this.progressBar)
                 return;

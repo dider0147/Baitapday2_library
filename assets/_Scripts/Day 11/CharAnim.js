@@ -4,6 +4,9 @@ const CharAnim = cc.Class({
     properties: {
         anim: sp.Skeleton
     },
+    start() {
+        this.setupAnim("idle");
+    },
 
     setupAnim(animName) {
         this.anim.setAnimation(0, animName, true);

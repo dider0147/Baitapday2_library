@@ -22,11 +22,7 @@ const CharAnim = cc.Class({
     },
 
     getAllAnimName() {
-        let animName = [];
-        this.anim.skeletonData.getRuntimeData().animations.forEach(element => {
-            animName.push(element.name);
-        });
-        return animName;
+        return this.anim.skeletonData.getRuntimeData().animations.map(a => a.name);
     },
     doActionSystem() {
         if (this.isAnim) {

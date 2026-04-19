@@ -12,9 +12,6 @@ const ButtonController = cc.Class({
     },
 
     start() {
-        Emitter.instance = new Emitter();
-        Emitter.instance.registerEvent("DO_ANIM", this.doAnimByTouch.bind(this), this);
-
         this.initData();
     },
 
@@ -26,9 +23,6 @@ const ButtonController = cc.Class({
             const script = newButton.getComponent(btn);
             script.initData(name, this.char);
         })
-    },
-    doAnimByTouch(name) {
-        this.char.setupAnim(name);
     },
     onDestroy() {
         Emitter.instance.removeAllEventsByTarget(this);

@@ -1,6 +1,5 @@
 var charAnim = require("CharAnim");
 var btn = require("ButtonPrefab");
-const Emitter = require('mEmitter');
 
 const ButtonController = cc.Class({
     extends: cc.Component,

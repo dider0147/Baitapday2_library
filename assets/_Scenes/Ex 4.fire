@@ -20,16 +20,16 @@
         "__id__": 7
       },
       {
-        "__id__": 16
+        "__id__": 18
+      },
+      {
+        "__id__": 14
       },
       {
         "__id__": 17
-      },
-      {
-        "__id__": 15
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [],
     "_prefab": null,
     "_opacity": 255,
@@ -298,7 +298,7 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 13
+        "__id__": 15
       }
     ],
     "_prefab": null,
@@ -595,12 +595,100 @@
     "anim": {
       "__id__": 11
     },
-    "speed": 100,
+    "speed": 200,
     "firePoint": {
       "__id__": 10
     },
+    "bulletPrefab": {
+      "__uuid__": "de9cdd78-2594-47a6-978f-c34fc226a3a3"
+    },
+    "bulletManager": {
+      "__id__": 13
+    },
     "isLeftFace": false,
+    "currentState": null,
     "_id": "6b4y7JNF5H0KIT4sdYv7tR"
+  },
+  {
+    "__type__": "86a72X6QhxNw6eglQWVnFBl",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 14
+    },
+    "_enabled": true,
+    "bulletPrefabs": [
+      {
+        "__uuid__": "de9cdd78-2594-47a6-978f-c34fc226a3a3"
+      }
+    ],
+    "bulletLayer": {
+      "__id__": 14
+    },
+    "pools": {},
+    "_id": "5d+jSE9stH/Ko4o2pvgO0D"
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "Bullet Layer",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 1
+    },
+    "_children": [],
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 13
+      }
+    ],
+    "_prefab": null,
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 0,
+      "height": 0
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_trs": {
+      "__type__": "TypedArray",
+      "ctor": "Float64Array",
+      "array": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "_eulerAngles": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_is3DNode": false,
+    "_groupIndex": 0,
+    "groupIndex": 0,
+    "_id": "e577o8e21Co501V1OjtCNY"
   },
   {
     "__type__": "740c68Qgs9Cra6vYugWeELf",
@@ -611,7 +699,7 @@
     },
     "_enabled": true,
     "inputMgr": {
-      "__id__": 14
+      "__id__": 16
     },
     "char": {
       "__id__": 12
@@ -623,7 +711,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 15
+      "__id__": 17
     },
     "_enabled": true,
     "direction": {
@@ -644,7 +732,7 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 14
+        "__id__": 16
       }
     ],
     "_prefab": null,
@@ -752,63 +840,5 @@
     "_groupIndex": 0,
     "groupIndex": 0,
     "_id": "c7faEwIUBENbQSEBB1EDIZ"
-  },
-  {
-    "__type__": "cc.Node",
-    "_name": "Bullet Layer",
-    "_objFlags": 0,
-    "_parent": {
-      "__id__": 1
-    },
-    "_children": [],
-    "_active": true,
-    "_components": [],
-    "_prefab": null,
-    "_opacity": 255,
-    "_color": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
-      "a": 255
-    },
-    "_contentSize": {
-      "__type__": "cc.Size",
-      "width": 0,
-      "height": 0
-    },
-    "_anchorPoint": {
-      "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
-    },
-    "_trs": {
-      "__type__": "TypedArray",
-      "ctor": "Float64Array",
-      "array": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        1,
-        1,
-        1
-      ]
-    },
-    "_eulerAngles": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "_skewX": 0,
-    "_skewY": 0,
-    "_is3DNode": false,
-    "_groupIndex": 0,
-    "groupIndex": 0,
-    "_id": "e577o8e21Co501V1OjtCNY"
   }
 ]

@@ -1,3 +1,5 @@
+const Emitter = require("../mEmitter");
+const GameEvent = require("./EventInGame");
 
 
 const InputManager = cc.Class({
@@ -11,6 +13,7 @@ const InputManager = cc.Class({
     },
 
     onLoad() {
+        Emitter.instance = new Emitter();
         this.registerEvent();
     },
     registerEvent() {
@@ -43,6 +46,11 @@ const InputManager = cc.Class({
         }
         if (event.keyCode === cc.macro.KEY.left || event.keyCode === cc.macro.KEY.right) {
             this.direction.x = 0;
+        }
+        switch(event.keyCode) {
+            case cc.macro.KEY.space:
+                Emitter.instance.emit(GameEvent.INPUT_FIRE);
+                break;
         }
     },
     getDirection() {

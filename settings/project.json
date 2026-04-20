@@ -1,10 +1,22 @@
 {
   "group-list": [
-    "default"
+    "default",
+    "bullet",
+    "char"
   ],
   "collision-matrix": [
     [
       true
+    ],
+    [
+      false,
+      false,
+      true
+    ],
+    [
+      false,
+      true,
+      false
     ]
   ],
   "excluded-modules": [

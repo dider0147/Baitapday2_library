@@ -40,7 +40,6 @@ const CharAnim = cc.Class({
         this.node.scale = this.config.sca;
         this.model.scaleX = Math.abs(this.model.scaleX);
         this.toggleAnimTable(true);
-        this.setupAnim("idle");
 
         this.isAnim = false;
     },

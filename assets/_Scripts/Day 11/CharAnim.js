@@ -39,6 +39,7 @@ const CharAnim = cc.Class({
         this.node.rotation = this.config.rot;
         this.node.scale = this.config.sca;
         this.model.scaleX = Math.abs(this.model.scaleX);
+        this.setupAnim("idle");
 
         this.isAnim = false;
     },

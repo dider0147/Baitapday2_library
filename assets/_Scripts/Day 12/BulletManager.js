@@ -2,6 +2,7 @@ const BulletManager = cc.Class({
     extends: cc.Component,
 
     properties: {
+        canvas: cc.Canvas,
         bulletPrefabs: [cc.Prefab],
         bulletLayer: cc.Node,
         pools: {
@@ -12,6 +13,7 @@ const BulletManager = cc.Class({
     onLoad() {
         let physicsManager = cc.director.getPhysicsManager();
         physicsManager.enabled = true;
+        cc.director.getCollisionManager().enabled = true;
         this.init();
     },
 
@@ -42,7 +44,13 @@ const BulletManager = cc.Class({
         const posFire = this.bulletLayer.convertToNodeSpaceAR(firePoint);
         bulletNode.position = posFire;
         this.bulletLayer.addChild(bulletNode);
-        bulletNode.init(direction);
+        const data = {
+            limitX: this.canvas.designResolution.width,
+            limitY: this.canvas.designResolution.height,
+            direction: direction,
+            manager: this
+        }
+        bulletNode.init(data);
     }
 });
 

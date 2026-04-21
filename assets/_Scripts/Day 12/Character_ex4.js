@@ -1,15 +1,24 @@
+//const { PlayerType, PLAYER_CONFIGS } = require("./EventInGame");
+
 const BulletManager = require("BulletManager");
 
-export const PlayerState = {
+const PlayerType = Object.freeze({
+    normal: 0,
+    speed: 1,
+    power: 2
+})
+
+const PlayerState = Object.freeze({
     idle: 0,
     run: 1,
     attack: 2
-}
+})
 
 const Character_ex4 = cc.Class({
     extends: cc.Component,
 
     properties: {
+        canvas: cc.Canvas,
         model: cc.Node,
         anim: sp.Skeleton,
         speed: 0,
@@ -23,20 +32,45 @@ const Character_ex4 = cc.Class({
         currentState: {
             default: null,
             visible: false
+        },
+        config: {
+            default: null,
+            visible: false
+        },
+        currentType: {
+            default: null,
+            visible: false
+        },
+        normalConfig: {
+            default: null,
+            visible: false
         }
     },
 
     start() {
-        this.idling();
-    },
-    idling() {
+        this.initConfig();
         this.setState(PlayerState.idle);
     },
-    
+    initConfig() {
+        this.config = {
+            limitX: this.canvas.designResolution.width,
+            limitY: this.canvas.designResolution.height
+        }
+    },
     moving(dir, dt) {
+        const worldPos = this.node.convertToWorldSpaceAR(cc.v2(0, 0));
+        let nextX = worldPos.x + (dir.x * this.speed * dt);
+        let nextY = worldPos.y + (dir.y * this.speed * dt);
+        let actualDir = cc.v2(dir.x, dir.y);
+        if (nextX > this.config.limitX || nextX < 0) {
+            actualDir.x = 0;
+        }
+        if (nextY > this.config.limitY || nextY < 0) {
+            actualDir.y = 0;
+        }
         let position = this.node.position;
-        position.x += this.speed * dir.x * dt;
-        position.y += this.speed * dir.y * dt;
+        position.x += this.speed * actualDir.x * dt;
+        position.y += this.speed * actualDir.y * dt;
         this.setState(PlayerState.run);
         this.node.position = position;
         this.checkShouldFlip(dir);
@@ -58,6 +92,24 @@ const Character_ex4 = cc.Class({
     setAnimation(name, isLoop) {
         this.anim.setAnimation(0, name, isLoop);
     },
+    setType(type) {
+        if (this.currentType && this.currentType === type) {
+            return;
+        }
+        switch(type) {
+            case PlayerType.normal:
+                this.setAnimation(PLAYER_CONFIGS[PlayerType.normal][this.currentState].name, PLAYER_CONFIGS[PlayerType.normal][this.currentState].loop);
+                break;
+            case PlayerType.speed:
+                this.setAnimation(PLAYER_CONFIGS[PlayerType.speed][this.currentState].name, PLAYER_CONFIGS[PlayerType.speed][this.currentState].loop);
+                break;
+            case PlayerType.power:
+                this.setAnimation(PLAYER_CONFIGS[PlayerType.power][this.currentState].name, PLAYER_CONFIGS[PlayerType.power][this.currentState].loop);
+                break;
+        }
+
+        this.currentType = type;
+    },
     setState(state) {
         if (this.currentState && this.currentState === state) {
             return;
@@ -69,10 +121,23 @@ const Character_ex4 = cc.Class({
             case PlayerState.run:
                 this.setAnimation("run", true);
                 break;
+            case PlayerState.attack:
+                this.setAnimation("shoot");
+                this.shoot();
+                break;
         }
         this.currentState = state;
+    },
+    getStateConfig() {
+        //const config = PLAYER_CONFIGS
+    },
+    getState() {
+        return this.currentState;
     }
 });
 
 
-module.exports = Character_ex4;
+module.exports = {
+    Character_ex4: Character_ex4,
+    PlayerState: PlayerState
+}

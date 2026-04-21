@@ -10,10 +10,7 @@ const CharacterController = cc.Class({
         inputMgr: inputManager,
         char: Character_ex4,
         canvas: cc.Canvas,
-        attackCooldown: {
-            default: 0.3,
-            visible: false
-        },
+        attackCooldown: 1,
         currentAttackCD: {
             default: 0,
             visible: false
@@ -45,14 +42,16 @@ const CharacterController = cc.Class({
     playerMoving(dt) {
         const dir = this.inputMgr.getDirection().normalizeSelf();
         if (Math.abs(dir.mag()) > 0) {
-            this.char.moving(dir, dt);
-                    
+            this.char.moving(dir, dt); 
         }
         else {
             this.char.setState(PlayerState.idle);
         } 
     },
     playerAttack() {
+        if (this.currentAttackCD > 0) {
+            return;
+        }
         this.char.setState(PlayerState.attack);
         this.currentAttackCD = this.attackCooldown;
     },

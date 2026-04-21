@@ -25,36 +25,49 @@ const InputManager = cc.Class({
         cc.systemEvent.off(cc.SystemEvent.EventType.KEY_UP, this.onKeyUp, this);
     },
     onkeydown(event) {
+        let isChanged = false;
         switch(event.keyCode) {
             case cc.macro.KEY.up:
                 this.direction.y = 1;
+                isChanged = true;
                 break;
             case cc.macro.KEY.down:
                 this.direction.y = -1;
+                isChanged = true;
                 break;
             case cc.macro.KEY.left:
                 this.direction.x = -1;
+                isChanged = true;
                 break;
             case cc.macro.KEY.right:
                 this.direction.x = 1;
+                isChanged = true;
                 break;
+        }
+        if (isChanged) {
+            Emitter.instance.emit(GameEvent.INPUT_MOVE, this.direction);
         }
     },
     onKeyUp(event) {
-        if (event.keyCode === cc.macro.KEY.up || event.keyCode === cc.macro.KEY.down) {
-            this.direction.y = 0;
-        }
-        if (event.keyCode === cc.macro.KEY.left || event.keyCode === cc.macro.KEY.right) {
-            this.direction.x = 0;
-        }
+        let isChanged = false;
         switch(event.keyCode) {
             case cc.macro.KEY.space:
                 Emitter.instance.emit(GameEvent.INPUT_FIRE);
                 break;
+            case cc.macro.KEY.up:
+            case cc.macro.KEY.down:
+                this.direction.y = 0;
+                isChanged = true;
+                break;
+            case cc.macro.KEY.left:
+            case cc.macro.KEY.right:
+                this.direction.x = 0;
+                isChanged = true;
+                break;
         }
-    },
-    getDirection() {
-        return this.direction;
+        if (isChanged) {
+            Emitter.instance.emit(GameEvent.INPUT_MOVE, this.direction);
+        }
     },
     onDestroy() {
         this.unRegisterEvent();

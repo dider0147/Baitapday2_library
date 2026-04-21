@@ -48,7 +48,7 @@ const Bullet = cc.Class({
         let nextY = worldPos.y + (this.speed * this.config.direction.y * dt);
 
         if (nextX > this.config.limitX || nextX < 0
-            || nextY > this.config.limitY || nextX < 0
+            || nextY > this.config.limitY || nextY < 0
         ) {
             this.disable();
         }

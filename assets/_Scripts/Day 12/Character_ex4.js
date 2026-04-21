@@ -1,12 +1,4 @@
-//const { PlayerType, PLAYER_CONFIGS } = require("./EventInGame");
-
 const BulletManager = require("BulletManager");
-
-const PlayerType = Object.freeze({
-    normal: 0,
-    speed: 1,
-    power: 2
-})
 
 const PlayerState = Object.freeze({
     idle: 0,
@@ -38,10 +30,6 @@ const Character_ex4 = cc.Class({
             visible: false
         },
         currentType: {
-            default: null,
-            visible: false
-        },
-        normalConfig: {
             default: null,
             visible: false
         }

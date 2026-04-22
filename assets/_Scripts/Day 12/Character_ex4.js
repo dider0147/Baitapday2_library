@@ -28,10 +28,6 @@ const Character_ex4 = cc.Class({
         config: {
             default: null,
             visible: false
-        },
-        currentType: {
-            default: null,
-            visible: false
         }
     },
 
@@ -80,24 +76,6 @@ const Character_ex4 = cc.Class({
     setAnimation(name, isLoop) {
         this.anim.setAnimation(0, name, isLoop);
     },
-    setType(type) {
-        if (this.currentType && this.currentType === type) {
-            return;
-        }
-        switch(type) {
-            case PlayerType.normal:
-                this.setAnimation(PLAYER_CONFIGS[PlayerType.normal][this.currentState].name, PLAYER_CONFIGS[PlayerType.normal][this.currentState].loop);
-                break;
-            case PlayerType.speed:
-                this.setAnimation(PLAYER_CONFIGS[PlayerType.speed][this.currentState].name, PLAYER_CONFIGS[PlayerType.speed][this.currentState].loop);
-                break;
-            case PlayerType.power:
-                this.setAnimation(PLAYER_CONFIGS[PlayerType.power][this.currentState].name, PLAYER_CONFIGS[PlayerType.power][this.currentState].loop);
-                break;
-        }
-
-        this.currentType = type;
-    },
     setState(state) {
         if (this.currentState && this.currentState === state) {
             return;
@@ -110,7 +88,7 @@ const Character_ex4 = cc.Class({
                 this.setAnimation("run", true);
                 break;
             case PlayerState.attack:
-                this.setAnimation("shoot");
+                this.setAnimation("shoot", false);
                 this.shoot();
                 break;
         }

@@ -61,6 +61,8 @@ export class InputManager extends Component {
                 this.dirInput.x = 0;
                 isChanged = true;
                 break;
+            case KeyCode.SPACE:
+                director.emit(GameEventData.INPUT_FIRE);
         }
         if (isChanged) {
             director.emit(GameEventData.INPUT_MOVE, this.dirInput);

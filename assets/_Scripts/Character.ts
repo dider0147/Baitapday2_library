@@ -1,5 +1,6 @@
-import { _decorator, Component, Node, sp, Vec2 } from 'cc';
+import { _decorator, Component, Node, Prefab, sp, UITransform, Vec2, Vec3 } from 'cc';
 import { PlayerState, CharacterData } from './GameData';
+import { BulletController } from './BulletController';
 const { ccclass, property } = _decorator;
 
 @ccclass('Character')
@@ -7,7 +8,10 @@ export class Character extends Component {
 
     @property(sp.Skeleton)
     private spine: sp.Skeleton = null;
-
+    @property(UITransform)
+    private uiTransform: UITransform = null;
+    @property(Prefab)
+    private bulletPrefab: Prefab = null;
     @property
     private speed: number = 0;
 
@@ -29,7 +33,10 @@ export class Character extends Component {
     }
 
     public shoot() {
-        console.log("shoot");
+        let worldPos = this.uiTransform.convertToWorldSpaceAR(Vec3.ZERO);
+        let v2RightDir = new Vec2(1, 0);
+        let dir = this.isLeftFace ? v2RightDir.multiplyScalar(-1) : v2RightDir; 
+        BulletController.instance.spawn(this.bulletPrefab, dir, worldPos);
     }
     private setAnimation(name: string, isLoop: boolean) {
         this.spine.setAnimation(0, name, isLoop);

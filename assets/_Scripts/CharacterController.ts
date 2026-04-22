@@ -2,22 +2,26 @@ import { _decorator, Component, director, Node, UITransform, Vec2 } from 'cc';
 import { Character } from './Character';
 import { GameEventData } from './GameEventData';
 import { PlayerState } from './GameData';
-import { Singleton } from './Singleton';
+import { BulletController } from './BulletController';
 const { ccclass, property } = _decorator;
 
 @ccclass('CharacterController')
-export class CharacterController extends Singleton<CharacterController> {
+export class CharacterController extends Component {
     @property(Character)
     private char: Character = null;
 
     private movement: Vec2 = new Vec2(0, 0);
 
+    public static instance: CharacterController = null;
+
     start() {
+        CharacterController.instance = this;
         this.register();
     }
 
     private register() {
         director.on(GameEventData.INPUT_MOVE, this.setMovement, this);
+        director.on(GameEventData.INPUT_FIRE,this.attack, this);
     }
     protected update(dt: number) {
         this.playerMoving(dt);
@@ -34,7 +38,7 @@ export class CharacterController extends Singleton<CharacterController> {
         
     }
     private attack() {
-        let uiScreen = this.char.node.getComponent<UITransform>
+        this.char.shoot();
     }
     private setMovement(dir: Vec2) {
         console.log("set roi");

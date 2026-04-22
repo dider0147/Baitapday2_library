@@ -31,10 +31,13 @@
       },
       {
         "__id__": 12
+      },
+      {
+        "__id__": 14
       }
     ],
     "_prefab": {
-      "__id__": 14
+      "__id__": 16
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -226,7 +229,7 @@
     "fileId": "c8kmg7FeFBTJY0/t3+o/SL"
   },
   {
-    "__type__": "cc.RigidBody2D",
+    "__type__": "3a1derdNdlPSYNdVkfjQw9C",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -236,11 +239,33 @@
     "__prefab": {
       "__id__": 11
     },
+    "speed": 10,
+    "damage": 10,
+    "rb": {
+      "__id__": 12
+    },
+    "_id": ""
+  },
+  {
+    "__type__": "cc.CompPrefabInfo",
+    "fileId": "03SNVhf71My58qgWSzQncm"
+  },
+  {
+    "__type__": "cc.RigidBody2D",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "__prefab": {
+      "__id__": 13
+    },
     "enabledContactListener": false,
     "bullet": false,
     "awakeOnLoad": true,
     "_group": 1,
-    "_type": 2,
+    "_type": 1,
     "_allowSleep": true,
     "_gravityScale": 1,
     "_linearDamping": 0,
@@ -267,7 +292,7 @@
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 13
+      "__id__": 15
     },
     "tag": 0,
     "_group": 1,
@@ -296,6 +321,7 @@
       "__id__": 0
     },
     "fileId": "c0/4KoDfBLFLmycYdI3Q5h",
-    "instance": null
+    "instance": null,
+    "targetOverrides": null
   }
 ]

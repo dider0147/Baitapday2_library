@@ -1,4 +1,3 @@
-
 export class CharacterData{
     public static readonly ANIM_PORTAL = "portal";
     public static readonly ANIM_IDLE = "idle";

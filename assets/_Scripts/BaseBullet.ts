@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, RigidBody, Vec2, Vec3 } from 'cc';
+import { _decorator, Component, Node, RigidBody, RigidBody2D, Vec2, Vec3 } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass('BaseBullet')
@@ -7,9 +7,9 @@ export abstract class BaseBullet extends Component {
     protected speed: number = 0;
     @property
     protected damage: number = 0;
-    @property(RigidBody)
-    protected rb: RigidBody = null;
+    @property(RigidBody2D)
+    protected rb: RigidBody2D = null;
     
-    public abstract fire(direction: Vec3);
+    public abstract fire(direction: Vec2);
 }
 

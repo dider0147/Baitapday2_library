@@ -1,6 +1,7 @@
 import { _decorator, Component, Node, Prefab, sp, UITransform, Vec2, Vec3 } from 'cc';
 import { PlayerState, CharacterData } from './GameData';
 import { BulletController } from './BulletController';
+import { RoomManager } from './RoomManager';
 const { ccclass, property } = _decorator;
 
 @ccclass('Character')
@@ -17,8 +18,30 @@ export class Character extends Component {
 
     private isLeftFace: boolean = false;
     private currentState: PlayerState = PlayerState.NONE;
+    private limitX: number = 0;
+    private limitY: number = 0;
+
+    init() {
+        const canvas = RoomManager.instance.getCanvas();
+        this.limitX = canvas.contentSize.width / 2;
+        this.limitY = canvas.contentSize.height / 2;
+    }
+
+    setMixAnim() {
+        CharacterData.MIX_CONFIGS.forEach(config => {
+            this.spine.setMix(config.from, config.to, config.duration);
+        })
+    }
     
     public moving(velocity: Vec2) {
+        let nextX = this.node.position.x + velocity.x * this.speed;
+        let nextY = this.node.position.y + velocity.y * this.speed;
+        if (nextX > this.limitX || nextX < -this.limitX) {
+            velocity.x = 0;
+        }
+        if (nextY > this.limitY || nextY < -this.limitY) {
+            velocity.y = 0;
+        }
         this.node.setPosition(this.node.position.x + velocity.x * this.speed, this.node.position.y + velocity.y * this.speed);
         const shouldFlip = (!this.isLeftFace && velocity.x < 0) || (this.isLeftFace && velocity.x > 0);
         if (shouldFlip) {

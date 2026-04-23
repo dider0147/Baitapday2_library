@@ -5,3 +5,7 @@ export class GameEventData {
     public static readonly INPUT_SWITCH = "input switch";
 }
 
+export enum GameState {
+    lobby, room, exit
+}
+

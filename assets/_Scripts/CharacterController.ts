@@ -20,6 +20,7 @@ export class CharacterController extends Component {
     start() {
         CharacterController.instance = this;
         this.register();
+        this.char.init();
     }
 
     private register() {

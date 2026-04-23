@@ -11,7 +11,9 @@ export class RoomManager extends Component {
     protected onLoad() {
         RoomManager.instance = this;
     }
-
+    protected start() {
+        
+    }
     public getCanvas = () => this.canvas;
 }
 

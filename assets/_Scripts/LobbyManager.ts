@@ -1,6 +1,8 @@
 import { _decorator, Button, Component, Node } from 'cc';
 import { GameManager } from './GameManager';
 import { GameState } from './GameData';
+import { PopupManager } from './PopupManager';
+import { PopupSetting } from './PopupSetting';
 const { ccclass, property } = _decorator;
 
 @ccclass('LobbyManager')
@@ -18,11 +20,14 @@ export class LobbyManager extends Component {
 
     init() {
         this.startButton.node.on(Button.EventType.CLICK, this.onStartClickBtn, this);
-        //this.settingButton.node.on
+        this.settingButton.node.on(Button.EventType.CLICK, this.onSettingClickBtn, this);
     }
 
     private onStartClickBtn() {
         GameManager.instance.setState(GameState.room);
+    }
+    private onSettingClickBtn() {
+        PopupManager.instance.show(PopupSetting);
     }
     protected onDestroy() {
         this.startButton.node.off(Button.EventType.CLICK, this.onStartClickBtn, this);

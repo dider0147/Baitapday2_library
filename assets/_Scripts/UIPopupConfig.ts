@@ -1,16 +1,15 @@
-import { _decorator, Asset, Prefab } from 'cc';
+import { _decorator, Asset, Component, Prefab } from 'cc';
+import { UIBasePopup } from './UIBasePopup';
 const { ccclass, property } = _decorator;
 
 @ccclass('UIPopupItem')
 export class UIPopupItem {
-    @property
-    public name: string = "";
     @property(Prefab)
     public prefab: Prefab = null;
 }
 
 @ccclass('UIPopupConfig')
-export class UIPopupConfig extends Asset {
+export class UIPopupConfig extends Component {
     @property([UIPopupItem])
     public listPopups: UIPopupItem[] = [];
 }

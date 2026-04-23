@@ -11,7 +11,7 @@ export class BulletController extends BasePooling {
 
     public static instance: BulletController = null;
 
-    protected start() {
+    protected onLoad() {
         BulletController.instance = this;
     }
   

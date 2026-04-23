@@ -24,6 +24,9 @@ export abstract class BasePooling extends Component {
     }
     public return(node: Node) {
         let prefabName = node.name;
+        if (!this.prefabPools.has(prefabName)) {
+            this.prefabPools.set(prefabName, []);
+        }
         node.active = false;
         this.prefabPools.get(prefabName)!.push(node);
     }

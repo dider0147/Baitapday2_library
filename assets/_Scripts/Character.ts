@@ -9,7 +9,7 @@ export class Character extends Component {
     @property(sp.Skeleton)
     private spine: sp.Skeleton = null;
     @property(UITransform)
-    private uiTransform: UITransform = null;
+    private firePoint: UITransform = null;
     @property(Prefab)
     private bulletPrefab: Prefab = null;
     @property
@@ -33,10 +33,11 @@ export class Character extends Component {
     }
 
     public shoot() {
-        let worldPos = this.uiTransform.convertToWorldSpaceAR(Vec3.ZERO);
+        let worldPos = this.firePoint.convertToWorldSpaceAR(Vec3.ZERO);
         let v2RightDir = new Vec2(1, 0);
         let dir = this.isLeftFace ? v2RightDir.multiplyScalar(-1) : v2RightDir; 
         BulletController.instance.spawn(this.bulletPrefab, dir, worldPos);
+        this.setState(PlayerState.ATTACK);
     }
     private setAnimation(name: string, isLoop: boolean) {
         this.spine.setAnimation(0, name, isLoop);

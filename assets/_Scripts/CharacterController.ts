@@ -9,8 +9,11 @@ const { ccclass, property } = _decorator;
 export class CharacterController extends Component {
     @property(Character)
     private char: Character = null;
+    @property
+    private attackCD: number = 0.5;
 
     private movement: Vec2 = new Vec2(0, 0);
+    private currentAttackCD: number = 0;
 
     public static instance: CharacterController = null;
 
@@ -24,6 +27,10 @@ export class CharacterController extends Component {
         director.on(GameEventData.INPUT_FIRE,this.attack, this);
     }
     protected update(dt: number) {
+        if (!this.checkCanAttack()) {
+            this.currentAttackCD -= dt;
+            return;
+        }
         this.playerMoving(dt);
     }
     private playerMoving(dt: number) {
@@ -38,10 +45,18 @@ export class CharacterController extends Component {
         
     }
     private attack() {
-        this.char.shoot();
+        if (this.checkCanAttack()) {
+            this.currentAttackCD = this.attackCD;
+            this.char.shoot();
+        } 
+    }
+    private checkCanAttack() {
+        if (this.currentAttackCD > 0) {
+            return false;
+        }
+        return true;
     }
     private setMovement(dir: Vec2) {
-        console.log("set roi");
         this.movement.x = dir.x;
         this.movement.y = dir.y;
     }

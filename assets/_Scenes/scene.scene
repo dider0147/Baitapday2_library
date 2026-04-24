@@ -2156,7 +2156,7 @@
     "char": {
       "__id__": 54
     },
-    "attackCD": 0.75,
+    "attackCD": 0.3,
     "_id": "72YViiaXJE44hzkUWhbuMz"
   },
   {

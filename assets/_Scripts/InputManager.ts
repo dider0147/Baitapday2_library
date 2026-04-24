@@ -1,6 +1,8 @@
-import { _decorator, Component, director, EventKeyboard, Input, input, KeyCode, macro, Node, Vec2 } from 'cc';
+import { _decorator, Component, director, EventKeyboard, Input, input, KeyCode, Vec2 } from 'cc';
 import { GameEventData } from './GameEventData';
-const { ccclass, property } = _decorator;
+import { RoomManager } from './RoomManager';
+import { RoomState } from './GameData';
+const { ccclass } = _decorator;
 
 @ccclass('InputManager')
 export class InputManager extends Component {
@@ -16,6 +18,9 @@ export class InputManager extends Component {
     }
 
     private onKeyDown(event: EventKeyboard) {
+        if (RoomManager.instance.getState() != RoomState.start) {
+            return;
+        }
         let isChanged = false;
         switch(event.keyCode) {
             case KeyCode.ARROW_DOWN:
@@ -45,6 +50,9 @@ export class InputManager extends Component {
     }
 
     private onKeyUp(event: EventKeyboard) {
+        if (RoomManager.instance.getState() != RoomState.start) {
+            return;
+        }
         let isChanged = false;
         switch (event.keyCode) {
             case KeyCode.ARROW_DOWN:

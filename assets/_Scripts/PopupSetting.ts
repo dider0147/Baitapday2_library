@@ -1,4 +1,4 @@
-import { _decorator, Button, Component, Node, Sprite, SpriteFrame } from 'cc';
+import { _decorator, Button, Sprite, SpriteFrame } from 'cc';
 import { UIBasePopup } from './UIBasePopup';
 import { PopupManager } from './PopupManager';
 const { ccclass, property } = _decorator;

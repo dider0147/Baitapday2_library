@@ -1,4 +1,4 @@
-import { _decorator, Button, Component, Node } from 'cc';
+import { _decorator, Button, Component } from 'cc';
 import { GameManager } from './GameManager';
 import { GameState } from './GameData';
 import { PopupManager } from './PopupManager';

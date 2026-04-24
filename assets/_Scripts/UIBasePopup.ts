@@ -1,4 +1,4 @@
-import { _decorator, Button, Component, Node, UIOpacity } from 'cc';
+import { _decorator, Button, Component, UIOpacity } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass('UIBasePopup')

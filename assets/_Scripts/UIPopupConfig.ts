@@ -1,4 +1,4 @@
-import { _decorator, Asset, Component, Prefab } from 'cc';
+import { _decorator, Component, Prefab } from 'cc';
 import { UIBasePopup } from './UIBasePopup';
 const { ccclass, property } = _decorator;
 

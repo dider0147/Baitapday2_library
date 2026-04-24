@@ -1,8 +1,8 @@
-import { _decorator, Canvas, Vec2 } from 'cc';
+import { _decorator, Vec2, tween, Vec3 } from 'cc';
 import { BaseBullet } from './BaseBullet';
 import { RoomManager } from './RoomManager';
 import { BulletController } from './BulletController';
-const { ccclass, property } = _decorator;
+const { ccclass } = _decorator;
 
 @ccclass('Bullet')
 export class Bullet extends BaseBullet {
@@ -11,6 +11,7 @@ export class Bullet extends BaseBullet {
     private direction: Vec2 = new Vec2(0, 0);
 
     protected start() {
+        super.start();
         this.init();
     }
 

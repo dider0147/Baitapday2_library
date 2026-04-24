@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, Prefab, Vec2, UITransform, Vec3 } from 'cc';
+import { _decorator, Prefab, Vec2, UITransform, Vec3 } from 'cc';
 import { BasePooling } from './BasePooling';
 import { BaseBullet } from './BaseBullet';
 

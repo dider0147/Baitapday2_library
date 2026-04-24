@@ -1,6 +1,9 @@
 export enum GameState {
     lobby, room, exit
 }
+export enum RoomState {
+    ready, start, pause, end
+}
 export interface IAnimMixConfig {
     from: string;
     to: string;

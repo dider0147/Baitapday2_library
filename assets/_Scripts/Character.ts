@@ -57,6 +57,9 @@ export class Character extends Component {
     }
 
     public shoot() {
+        if (this.currentState == PlayerState.ATTACK) {
+            return;
+        }
         let worldPos = this.firePoint.convertToWorldSpaceAR(Vec3.ZERO);
         let v2RightDir = new Vec2(1, 0);
         let dir = this.isLeftFace ? v2RightDir.multiplyScalar(-1) : v2RightDir; 

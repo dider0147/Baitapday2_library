@@ -1877,8 +1877,8 @@
     "_prefab": null,
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
+      "x": -562,
+      "y": -60,
       "z": 0
     },
     "_lrot": {
@@ -2156,7 +2156,7 @@
     "char": {
       "__id__": 54
     },
-    "attackCD": 0.5,
+    "attackCD": 0.75,
     "_id": "72YViiaXJE44hzkUWhbuMz"
   },
   {

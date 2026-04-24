@@ -13,7 +13,7 @@ export class CharacterController extends Component {
     private attackCD: number = 0.5;
 
     private movement: Vec2 = new Vec2(0, 0);
-    private currentAttackCD: number = 0;
+    private timeStopMoving: number = 0;
 
     public static instance: CharacterController = null;
 
@@ -21,6 +21,8 @@ export class CharacterController extends Component {
         CharacterController.instance = this;
         this.register();
         this.char.init();
+        this.char.setState(PlayerState.PORTAL);
+        this.timeStopMoving = 3.5;
     }
 
     private register() {
@@ -29,7 +31,7 @@ export class CharacterController extends Component {
     }
     protected update(dt: number) {
         if (!this.checkCanAttack()) {
-            this.currentAttackCD -= dt;
+            this.timeStopMoving -= dt;
             return;
         }
         this.playerMoving(dt);
@@ -47,12 +49,12 @@ export class CharacterController extends Component {
     }
     private attack() {
         if (this.checkCanAttack()) {
-            this.currentAttackCD = this.attackCD;
+            this.timeStopMoving = this.attackCD;
             this.char.shoot();
         } 
     }
     private checkCanAttack() {
-        if (this.currentAttackCD > 0) {
+        if (this.timeStopMoving > 0) {
             return false;
         }
         return true;

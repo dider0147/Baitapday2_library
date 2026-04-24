@@ -25,6 +25,7 @@ export class Character extends Component {
         const canvas = RoomManager.instance.getCanvas();
         this.limitX = canvas.contentSize.width / 2;
         this.limitY = canvas.contentSize.height / 2;
+        this.setMixAnim();
     }
 
     setMixAnim() {

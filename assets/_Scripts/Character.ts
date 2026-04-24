@@ -1,5 +1,5 @@
-import { _decorator, Component, Node, Prefab, sp, UITransform, Vec2, Vec3 } from 'cc';
-import { PlayerState, CharacterData } from './GameData';
+import { _decorator, Component, Prefab, sp, UITransform, Vec2, Vec3, Node, tween } from 'cc';
+import { PlayerState, CharacterData, RoomState } from './GameData';
 import { BulletController } from './BulletController';
 import { RoomManager } from './RoomManager';
 const { ccclass, property } = _decorator;
@@ -13,6 +13,8 @@ export class Character extends Component {
     private firePoint: UITransform = null;
     @property(Prefab)
     private bulletPrefab: Prefab = null;
+    @property(Node)
+    private shadow: Node = null;
     @property
     private speed: number = 0;
 
@@ -33,7 +35,7 @@ export class Character extends Component {
             this.spine.setMix(config.from, config.to, config.duration);
         })
     }
-    
+
     public moving(velocity: Vec2) {
         let nextX = this.node.position.x + velocity.x * this.speed;
         let nextY = this.node.position.y + velocity.y * this.speed;
@@ -66,8 +68,19 @@ export class Character extends Component {
         BulletController.instance.spawn(this.bulletPrefab, dir, worldPos);
         this.setState(PlayerState.ATTACK);
     }
-    private setAnimation(name: string, isLoop: boolean) {
-        this.spine.setAnimation(0, name, isLoop);
+    private setAnimation(name: string, isLoop: boolean, layer: number = 0) {
+        this.spine.setAnimation(layer, name, isLoop);
+    }
+    private ready() {
+        this.shadow.active = true;
+        RoomManager.instance.setState(RoomState.start);
+    }
+    public reset() {
+        this.shadow.active = false;
+        this.isLeftFace = false;
+        this.currentState = null;
+        const scaleX = Math.abs(this.spine.node.scale.x);
+        this.spine.node.setScale(scaleX, this.spine.node.scale.y);
     }
     public setState(state: PlayerState) {
         if (this.currentState == state) {
@@ -76,6 +89,11 @@ export class Character extends Component {
         switch(state) {
             case PlayerState.PORTAL:
                 this.setAnimation(CharacterData.ANIM_PORTAL, false);
+                this.shadow.active = false;
+                tween(this.shadow)
+                    .delay(1.3)
+                    .call(() => this.ready())
+                    .start();
                 break;
             case PlayerState.IDLE:
                 this.setAnimation(CharacterData.ANIM_IDLE, true);
@@ -84,7 +102,8 @@ export class Character extends Component {
                 this.setAnimation(CharacterData.ANIM_RUN, true);
                 break;
             case PlayerState.ATTACK:
-                this.setAnimation(CharacterData.ANIM_SHOOT, false);
+                this.setAnimation(CharacterData.ANIM_SHOOT, false, 1);
+                this.setAnimation(CharacterData.ANIM_IDLE, false);
                 break;
             case PlayerState.DEATH:
                 this.setAnimation(CharacterData.ANIM_DEATH, false);

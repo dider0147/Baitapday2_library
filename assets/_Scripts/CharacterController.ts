@@ -1,14 +1,15 @@
-import { _decorator, Component, director, Node, UITransform, Vec2 } from 'cc';
+import { _decorator, Component, director, Vec2, Node } from 'cc';
 import { Character } from './Character';
 import { GameEventData } from './GameEventData';
 import { PlayerState } from './GameData';
-import { BulletController } from './BulletController';
 const { ccclass, property } = _decorator;
 
 @ccclass('CharacterController')
 export class CharacterController extends Component {
     @property(Character)
     private char: Character = null;
+    @property(Node)
+    private spawnNode: Node = null;
     @property
     private attackCD: number = 0.5;
 
@@ -17,14 +18,19 @@ export class CharacterController extends Component {
 
     public static instance: CharacterController = null;
 
-    start() {
+    protected onLoad(): void {
         CharacterController.instance = this;
+    }
+
+    start() {
         this.register();
+    }
+    public characterReady() {
+        this.reset();
         this.char.init();
         this.char.setState(PlayerState.PORTAL);
         this.timeStopMoving = 3.5;
     }
-
     private register() {
         director.on(GameEventData.INPUT_MOVE, this.setMovement, this);
         director.on(GameEventData.INPUT_FIRE,this.attack, this);
@@ -63,8 +69,15 @@ export class CharacterController extends Component {
         this.movement.x = dir.x;
         this.movement.y = dir.y;
     }
+    private reset() {
+        //this.char.node.position = this.spawnNode.position;
+        this.movement = new Vec2(0, 0);
+        this.timeStopMoving = 0;
+        this.char.reset();
+    }
     private unregister() {
         director.targetOff(this);
+        CharacterController.instance = null;
     }
     protected onDestroy() {
         this.unregister();

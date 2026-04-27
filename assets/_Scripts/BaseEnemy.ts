@@ -1,6 +1,7 @@
 import { _decorator, Color, color, Component, director, Node, RigidBody2D, Sprite, tween, Vec2 } from 'cc';
-import { GameEventData } from './GameEventData';
 import { EnemyManager } from './EnemyManager';
+import { RoomManager } from './RoomManager';
+import { GameEventData } from './GameEventData';
 const { ccclass, property } = _decorator;
 
 @ccclass('BaseEnemy')
@@ -13,24 +14,37 @@ export class BaseEnemy extends Component {
     private speed: number = 0;
     @property
     private maxHP: number = 100;
+    @property
+    private point = 0;
 
     private currentHP: number = 0;
 
+    private limitX = 0;
+
     protected onEnable() {
         this.currentHP = this.maxHP;
-        this.registerEvent();
         this.move();
     }
-    private registerEvent() {
-        director.on(GameEventData.ENEMY_HIT, this.hit, this);
-    }
 
+    protected start() {
+        this.limitX = RoomManager.instance.getCanvas().contentSize.width / 2;
+        director.on(GameEventData.ROOM_END, this.reset, this);
+    }
+    protected update(dt: number) {
+        this.checkLimit();
+    }
     private move() {
         const leftDir = new Vec2(-1, 0);
         this.rb.linearVelocity = leftDir.multiplyScalar(this.speed);
     }
 
-    private hit(damage: number) {
+    private checkLimit() {
+        if (this.node.position.x < -this.limitX) {
+            EnemyManager.instance.return(this.node);
+        }
+    }
+
+    public hit(damage: number) {
         this.currentHP -= damage;
         this.flashRed();
         if (this.currentHP <= 0) {
@@ -38,7 +52,7 @@ export class BaseEnemy extends Component {
         }
     }
 
-    flashRed() {
+    private flashRed() {
         tween(this.sprite).stop();
         tween(this.sprite)
             .to(0.1, {color: Color.RED})
@@ -47,8 +61,15 @@ export class BaseEnemy extends Component {
     }
 
     private die() {
+        this.reset();
+        RoomManager.instance.updateScore(this.point);
+    }
+    public reset() {
         this.rb.linearVelocity = Vec2.ZERO;
         EnemyManager.instance.return(this.node);
+    }
+    protected onDestroy(): void {
+        director.off(GameEventData.ROOM_END, this.reset, this);
     }
 }
 

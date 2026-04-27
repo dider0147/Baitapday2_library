@@ -13,12 +13,12 @@ export class ClockTimer extends Component {
     private maxTime: number = 0;
     private currentTime: number = 0;
 
-    protected start(): void {
-        this.init(30);
+    protected onEnable() {
+        this.timeSprite.fillRange = 0;
     }
 
     protected update(dt: number) {
-        if (this.currentTime > 0) {
+        if (RoomManager.instance.getState() == RoomState.start) {
             this.currentTime -= dt;
             this.refreshUI();
         }
@@ -32,7 +32,7 @@ export class ClockTimer extends Component {
     }
     private refreshUI() {
         if (this.currentTime < 0) {
-            RoomManager.instance.setState(RoomState.end);
+            RoomManager.instance.setState(RoomState.win);
             return;
         }
         this.timeSprite.fillRange = this.currentTime / this.maxTime;

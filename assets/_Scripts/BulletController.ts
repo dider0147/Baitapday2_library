@@ -6,8 +6,6 @@ const { ccclass, property } = _decorator;
 
 @ccclass('BulletController')
 export class BulletController extends BasePooling {
-    @property(UITransform)
-    private bulletLayer: UITransform = null;
 
     public static instance: BulletController = null;
 
@@ -17,9 +15,9 @@ export class BulletController extends BasePooling {
   
     public spawn(prefab: Prefab, dir: Vec2, worldPos: Vec3) {
         const bulletNode = this.get(prefab);
-        const posFire = this.bulletLayer.convertToNodeSpaceAR(worldPos);
+        const posFire = this.layer.convertToNodeSpaceAR(worldPos);
         bulletNode.position = posFire;
-        this.bulletLayer.node.addChild(bulletNode);
+        this.layer.node.addChild(bulletNode);
         let script = bulletNode.getComponent(BaseBullet as any) as BaseBullet;
         script.fire(dir);
     }

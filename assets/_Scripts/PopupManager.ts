@@ -1,12 +1,11 @@
-import { _decorator, Component, instantiate } from 'cc';
-import { UIPopupConfig } from './UIPopupConfig';
+import { _decorator, Component, instantiate, Prefab } from 'cc';
 import { UIBasePopup } from './UIBasePopup';
 const { ccclass, property } = _decorator;
 
 @ccclass('PopupManager')
 export class PopupManager extends Component {
-    @property(UIPopupConfig)
-    private config: UIPopupConfig = null;
+    @property([Prefab])
+    private prefabs: Prefab[] = [];
     
     private instantiatePopup: Map<string, UIBasePopup> = new Map(); 
 
@@ -23,12 +22,12 @@ export class PopupManager extends Component {
             return this.instantiatePopup.get(className) as T;
         }
 
-        const item = this.config.listPopups.find(i => {
-            return item.prefab && item.prefab.data.getComponent(type) !== null;
+        const item = this.prefabs.find(p => {
+            return p && p.data.getComponent(type) !== null;
         });
 
         if (item) {
-            const newNode = instantiate(item.prefab);
+            const newNode = instantiate(item);
             newNode.parent = this.node;
             newNode.active = false; 
 
@@ -48,12 +47,12 @@ export class PopupManager extends Component {
             return popup as T;
         }
 
-        const item = this.config.listPopups.find(i => {
-            return i.prefab.data.getComponent(type) !== null;
+        const item = this.prefabs.find(p => {
+            return p.data.getComponent(type) !== null;
         });
 
         if (item) {
-            const newNode = instantiate(item.prefab);
+            const newNode = instantiate(item);
             newNode.parent = this.node;
             const comp = newNode.getComponent(type);
             
@@ -70,6 +69,10 @@ export class PopupManager extends Component {
         if (popup) {
             popup.hide();
         }
+    }
+
+    public openPopupSetting() {
+        
     }
 }
 

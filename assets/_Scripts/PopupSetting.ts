@@ -1,4 +1,4 @@
-import { _decorator, Button, Sprite, SpriteFrame } from 'cc';
+import { _decorator, Button, director, Sprite, SpriteFrame } from 'cc';
 import { UIBasePopup } from './UIBasePopup';
 import { PopupManager } from './PopupManager';
 const { ccclass, property } = _decorator;
@@ -44,6 +44,7 @@ export class PopupSetting extends UIBasePopup {
     }
     private close() {
         PopupManager.instance.hide(PopupSetting);
+        director.resume();
     }
     private unregister() {
         this.muteBGM.node.off(Button.EventType.CLICK, this.onClickMuteBGM, this);

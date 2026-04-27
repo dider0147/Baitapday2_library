@@ -18,7 +18,7 @@ export class CharacterController extends Component {
 
     public static instance: CharacterController = null;
 
-    protected onLoad(): void {
+    protected onLoad() {
         CharacterController.instance = this;
     }
 
@@ -26,7 +26,6 @@ export class CharacterController extends Component {
         this.register();
     }
     public characterReady() {
-        this.reset();
         this.char.init();
         this.char.setState(PlayerState.PORTAL);
         this.timeStopMoving = 3.5;
@@ -34,6 +33,7 @@ export class CharacterController extends Component {
     private register() {
         director.on(GameEventData.INPUT_MOVE, this.setMovement, this);
         director.on(GameEventData.INPUT_FIRE,this.attack, this);
+        director.on(GameEventData.ROOM_END, this.reset, this);
     }
     protected update(dt: number) {
         if (!this.checkCanAttack()) {
@@ -70,7 +70,7 @@ export class CharacterController extends Component {
         this.movement.y = dir.y;
     }
     private reset() {
-        //this.char.node.position = this.spawnNode.position;
+        this.char.node.position = this.spawnNode.position;
         this.movement = new Vec2(0, 0);
         this.timeStopMoving = 0;
         this.char.reset();

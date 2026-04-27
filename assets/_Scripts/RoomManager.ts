@@ -1,21 +1,40 @@
-import { _decorator, Component, UITransform } from 'cc';
+import { _decorator, Button, Component, director, UITransform } from 'cc';
 import { RoomState } from './GameData';
 import { CharacterController } from './CharacterController';
+import { ClockTimer } from './ClockTimer';
+import { GameEventData, GameState } from './GameEventData';
+import { PopupManager } from './PopupManager';
+import { PopupPause } from './PopupPause';
+import { PopupSetting } from './PopupSetting';
+import { GameManager } from './GameManager';
+import { UIScoreBoard } from './UIScoreBoard';
+import { UIPopupWin } from './UIPopupWin';
 const { ccclass, property } = _decorator;
 
 @ccclass('RoomManager')
 export class RoomManager extends Component {
     @property(UITransform)
     private canvas: UITransform = null;
+    @property
+    private gameplayTime = 60;
+    @property(ClockTimer)
+    private clockTimer = null;
+    @property(UIScoreBoard)
+    private scoreBoard = null;
+    @property(Button)
+    private settingButton = null;
+    @property(Button)
+    private pauseButton = null;
 
     private currentState: RoomState = null;
+    private currentScore: number = 0;
 
     public static instance: RoomManager = null;
 
     protected onLoad() {
         RoomManager.instance = this;
     }
-    protected start() {
+    protected onEnable() {
         this.setState(RoomState.ready);
     }
     public setState(state: RoomState) {
@@ -26,16 +45,46 @@ export class RoomManager extends Component {
             case RoomState.ready:
                 CharacterController.instance.characterReady();
                 break;
-            case RoomState.start:
-                break;
-            case RoomState.pause:
+            case RoomState.start: 
+                this.clockTimer.init(this.gameplayTime);
                 break;
             case RoomState.end:
+                this.reset();
+                GameManager.instance.setState(GameState.lobby);
+                console.log("Room " + this.currentState);
+                break;
+            case RoomState.restart:
+                this.reset();
+                this.setState(RoomState.ready);
+                break;
+            case RoomState.win:
+                director.pause();
+                PopupManager.instance.show(UIPopupWin);
                 break;
         }
         this.currentState = state;
     }
+    public updateScore(score: number) {
+        this.currentScore += score;
+        this.scoreBoard.displayUIScore(this.currentScore);
+    }
+    private reset() {
+        director.emit(GameEventData.ROOM_END);
+        this.currentState = null;
+        this.currentScore = 0;
+        this.scoreBoard.displayUIScore(0);
+    }
+    private pause() {
+        PopupManager.instance.show(PopupPause);
+        director.pause();
+    }
+    private setting() {
+        PopupManager.instance.show(PopupSetting);
+        director.pause();
+    }
+
     public getState = () => this.currentState;
+    public getScore = () => this.currentScore;
     public getCanvas = () => this.canvas;
     protected onDisable() {
         this.currentState = null;

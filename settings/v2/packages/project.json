@@ -6,16 +6,6 @@
       "height": 720
     }
   },
-  "sorting-layer": {
-    "layers": [
-      {
-        "id": 0,
-        "name": "default",
-        "value": 0
-      }
-    ],
-    "increaseId": 2
-  },
   "physics": {
     "collisionGroups": [
       {

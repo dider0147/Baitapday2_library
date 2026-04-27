@@ -1,6 +1,7 @@
 import { _decorator, Collider2D, Component, Contact2DType, director, IPhysics2DContact, RigidBody2D, Vec2 } from 'cc';
 import { GameEventData } from './GameEventData';
 import { BulletController } from './BulletController';
+import { BaseEnemy } from './BaseEnemy';
 const { ccclass, property } = _decorator;
 
 @ccclass('BaseBullet')
@@ -21,11 +22,8 @@ export abstract class BaseBullet extends Component {
     public abstract fire(direction: Vec2);
 
     protected onBeginContact(selfCollider: Collider2D, otherCollider: Collider2D, contact: IPhysics2DContact | null) {
-        const data = {
-            enemy: otherCollider.node,
-            damage: this.damage
-        }
-        director.emit(GameEventData.ENEMY_HIT, data);
+        const enemyScript = otherCollider.getComponent(BaseEnemy);
+        enemyScript.hit(this.damage);
         BulletController.instance.return(this.node);
     }
 }

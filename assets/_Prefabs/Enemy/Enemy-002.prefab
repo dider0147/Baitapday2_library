@@ -30,11 +30,14 @@
         "__id__": 10
       },
       {
+        "__id__": 14
+      },
+      {
         "__id__": 12
       }
     ],
     "_prefab": {
-      "__id__": 14
+      "__id__": 16
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -236,17 +239,53 @@
     "__prefab": {
       "__id__": 11
     },
-    "rb": null,
+    "rb": {
+      "__id__": 12
+    },
     "sprite": {
       "__id__": 5
     },
-    "speed": 40,
-    "maxHP": 20,
+    "speed": 3,
+    "maxHP": 10,
+    "point": 20,
     "_id": ""
   },
   {
     "__type__": "cc.CompPrefabInfo",
     "fileId": "f8rpkl+bhLfrPbtHid6pBv"
+  },
+  {
+    "__type__": "cc.RigidBody2D",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "__prefab": {
+      "__id__": 13
+    },
+    "enabledContactListener": false,
+    "bullet": false,
+    "awakeOnLoad": true,
+    "_group": 4,
+    "_type": 1,
+    "_allowSleep": true,
+    "_gravityScale": 0,
+    "_linearDamping": 0,
+    "_angularDamping": 0,
+    "_linearVelocity": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_angularVelocity": 0,
+    "_fixedRotation": false,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.CompPrefabInfo",
+    "fileId": "14PhivGCdKZahzmgzYkA3L"
   },
   {
     "__type__": "cc.BoxCollider2D",
@@ -257,10 +296,10 @@
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 13
+      "__id__": 15
     },
     "tag": 0,
-    "_group": 1,
+    "_group": 4,
     "_density": 1,
     "_sensor": false,
     "_friction": 0.2,

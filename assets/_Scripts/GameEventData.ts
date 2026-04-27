@@ -5,6 +5,8 @@ export class GameEventData {
     public static readonly INPUT_SWITCH = "input switch";
 
     public static readonly ENEMY_HIT = "enemy hit";
+
+    public static readonly ROOM_END = "room end";
 }
 
 export enum GameState {

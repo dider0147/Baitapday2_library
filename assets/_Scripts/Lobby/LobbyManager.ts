@@ -21,6 +21,7 @@ export class LobbyManager extends Component {
     init() {
         this.startButton.node.on(Button.EventType.CLICK, this.onStartClickBtn, this);
         this.settingButton.node.on(Button.EventType.CLICK, this.onSettingClickBtn, this);
+        this.quitButton.node.on(Button.EventType.CLICK, this.onQuitClickButton, this);
     }
 
     private onStartClickBtn() {
@@ -29,10 +30,13 @@ export class LobbyManager extends Component {
     private onSettingClickBtn() {
         PopupManager.instance.show(PopupSetting);
     }
+    private onQuitClickButton() {
+        window.close();
+    }
     protected onDisable() {
         this.startButton.node.off(Button.EventType.CLICK, this.onStartClickBtn, this);
         this.settingButton.node.off(Button.EventType.CLICK, this.onSettingClickBtn, this);
-        
+        this.quitButton.node.off(Button.EventType.CLICK, this.onQuitClickButton, this);
     }
 }
 

@@ -21,10 +21,6 @@ export class RoomManager extends Component {
     private clockTimer = null;
     @property(UIScoreBoard)
     private scoreBoard = null;
-    @property(Button)
-    private settingButton = null;
-    @property(Button)
-    private pauseButton = null;
 
     private currentState: RoomState = null;
     private currentScore: number = 0;
@@ -46,12 +42,11 @@ export class RoomManager extends Component {
                 CharacterController.instance.characterReady();
                 break;
             case RoomState.start: 
-                this.clockTimer.init(this.gameplayTime);
+                this.clockTimer.init(this.gameplayTime);    
                 break;
             case RoomState.end:
                 this.reset();
                 GameManager.instance.setState(GameState.lobby);
-                console.log("Room " + this.currentState);
                 break;
             case RoomState.restart:
                 this.reset();
@@ -63,6 +58,7 @@ export class RoomManager extends Component {
                 break;
         }
         this.currentState = state;
+        console.log(this.currentState);
     }
     public updateScore(score: number) {
         this.currentScore += score;
@@ -87,7 +83,7 @@ export class RoomManager extends Component {
     public getScore = () => this.currentScore;
     public getCanvas = () => this.canvas;
     protected onDisable() {
-        this.currentState = null;
+        this.reset();
     }
 }
 

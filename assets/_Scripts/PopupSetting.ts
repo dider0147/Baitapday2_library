@@ -43,8 +43,8 @@ export class PopupSetting extends UIBasePopup {
         this.sfxSprite.spriteFrame = this.isMuteSFX ? this.muteSFXSprite : this.unmuteSFXSprite;
     }
     private close() {
-        PopupManager.instance.hide(PopupSetting);
         director.resume();
+        PopupManager.instance.hide(PopupSetting);
     }
     private unregister() {
         this.muteBGM.node.off(Button.EventType.CLICK, this.onClickMuteBGM, this);

@@ -13,8 +13,8 @@ export class LobbyManager extends Component {
     private settingButton: Button = null;
     @property(Button)
     private quitButton: Button = null;
-
-    protected start() {
+    
+    protected onEnable() {
         this.init();
     }
 
@@ -29,8 +29,10 @@ export class LobbyManager extends Component {
     private onSettingClickBtn() {
         PopupManager.instance.show(PopupSetting);
     }
-    protected onDestroy() {
+    protected onDisable() {
         this.startButton.node.off(Button.EventType.CLICK, this.onStartClickBtn, this);
+        this.settingButton.node.off(Button.EventType.CLICK, this.onSettingClickBtn, this);
+        
     }
 }
 

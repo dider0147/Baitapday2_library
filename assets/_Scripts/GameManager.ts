@@ -30,10 +30,12 @@ export class GameManager extends Component {
             case GameState.lobby:
                 this.lobby.active = true;
                 this.room.active = false;
+                console.log("bully 1");
                 break;
             case GameState.room:
                 this.lobby.active = false;
                 this.room.active = true
+                console.log("bully 1");
                 break;
         }
         this.state = state;

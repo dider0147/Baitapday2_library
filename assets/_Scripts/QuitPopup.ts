@@ -1,10 +1,9 @@
 import { _decorator, Button, director } from 'cc';
 import { UIBasePopup } from './UIBasePopup';
 import { RoomManager } from './RoomManager';
-import { GameState, RoomState } from './GameData';
+import { RoomState } from './GameData';
 import { PopupManager } from './PopupManager';
 import { PopupPause } from './PopupPause';
-import { GameManager } from './GameManager';
 const { ccclass, property } = _decorator;
 
 @ccclass('QuitPopup')

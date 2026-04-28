@@ -1,6 +1,6 @@
 import { _decorator, Component, director } from 'cc';
 import { GameData } from './GameData';
-const { ccclass, property } = _decorator;
+const { ccclass } = _decorator;
 
 @ccclass('SceneManager')
 export class SceneManager extends Component {

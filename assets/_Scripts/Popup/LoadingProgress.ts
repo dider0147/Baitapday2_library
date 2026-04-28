@@ -1,5 +1,5 @@
-import { _decorator, Component, director, Label, Node, ProgressBar } from 'cc';
-import { SceneManager } from './SceneManager';
+import { _decorator, Component, director, Label, ProgressBar } from 'cc';
+import { SceneManager } from '../SceneManager';
 const { ccclass, property } = _decorator;
 
 @ccclass('LoadingProgress')

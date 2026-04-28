@@ -1,8 +1,8 @@
-import { _decorator, Button, Component, director, Label, Node } from 'cc';
+import { _decorator, Button, director, Label } from 'cc';
 import { UIBasePopup } from './UIBasePopup';
-import { RoomManager } from './RoomManager';
+import { RoomManager } from '../Room/RoomManager';
 import { PopupManager } from './PopupManager';
-import { RoomState } from './GameData';
+import { RoomState } from '../GameData';
 const { ccclass, property } = _decorator;
 
 @ccclass('UIPopupWin')

@@ -1,6 +1,6 @@
-import { _decorator, Component, Label, Node, Sprite } from 'cc';
+import { _decorator, Component, Label, Sprite } from 'cc';
 import { RoomManager } from './RoomManager';
-import { RoomState } from './GameData';
+import { RoomState } from '../GameData';
 const { ccclass, property } = _decorator;
 
 @ccclass('ClockTimer')

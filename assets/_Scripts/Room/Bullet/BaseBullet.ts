@@ -1,7 +1,6 @@
-import { _decorator, Collider2D, Component, Contact2DType, director, IPhysics2DContact, RigidBody2D, Vec2 } from 'cc';
-import { GameEventData } from './GameEventData';
+import { _decorator, Collider2D, Component, Contact2DType, IPhysics2DContact, RigidBody2D, Vec2 } from 'cc';
 import { BulletController } from './BulletController';
-import { BaseEnemy } from './BaseEnemy';
+import { BaseEnemy } from '../Enemy/BaseEnemy';
 const { ccclass, property } = _decorator;
 
 @ccclass('BaseBullet')

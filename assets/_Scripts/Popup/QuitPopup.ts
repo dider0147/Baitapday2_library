@@ -1,7 +1,7 @@
 import { _decorator, Button, director } from 'cc';
 import { UIBasePopup } from './UIBasePopup';
-import { RoomManager } from './RoomManager';
-import { RoomState } from './GameData';
+import { RoomManager } from '../Room/RoomManager';
+import { RoomState } from '../GameData';
 import { PopupManager } from './PopupManager';
 import { PopupPause } from './PopupPause';
 const { ccclass, property } = _decorator;

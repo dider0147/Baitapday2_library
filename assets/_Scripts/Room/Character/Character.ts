@@ -1,7 +1,7 @@
 import { _decorator, Component, Prefab, sp, UITransform, Vec2, Vec3, Node, tween } from 'cc';
-import { PlayerState, CharacterData, RoomState } from './GameData';
-import { BulletController } from './BulletController';
-import { RoomManager } from './RoomManager';
+import { PlayerState, CharacterData, RoomState } from '../../GameData';
+import { BulletController } from '../Bullet/BulletController';
+import { RoomManager } from '../RoomManager';
 const { ccclass, property } = _decorator;
 
 @ccclass('Character')

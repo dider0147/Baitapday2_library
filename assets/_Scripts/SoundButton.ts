@@ -1,4 +1,4 @@
-import { _decorator, AudioClip, Button, Component, Node } from 'cc';
+import { _decorator, AudioClip, Button, Component } from 'cc';
 import { AudioManager } from './AudioManager';
 const { ccclass, requireComponent, property } = _decorator;
 

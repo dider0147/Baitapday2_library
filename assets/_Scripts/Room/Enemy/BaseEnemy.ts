@@ -1,8 +1,8 @@
 import { _decorator, Color, Component, director, ProgressBar, RigidBody2D, Sprite, tween, Vec2 } from 'cc';
 import { EnemyManager } from './EnemyManager';
-import { RoomManager } from './RoomManager';
-import { GameEventData } from './GameEventData';
-import { AudioManager } from './AudioManager';
+import { RoomManager } from '../RoomManager';
+import { GameEventData } from '../../GameEventData';
+import { AudioManager } from '../../AudioManager';
 const { ccclass, property } = _decorator;
 
 @ccclass('BaseEnemy')

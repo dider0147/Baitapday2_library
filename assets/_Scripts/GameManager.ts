@@ -1,7 +1,7 @@
-import { _decorator, Component, director, Node } from 'cc';
+import { _decorator, Component, director } from 'cc';
 import { GameData, GameState } from './GameData';
 import { SceneManager } from './SceneManager';
-const { ccclass, property } = _decorator;
+const { ccclass } = _decorator;
 
 @ccclass('GameManager')
 export class GameManager extends Component {

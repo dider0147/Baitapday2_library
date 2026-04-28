@@ -1,6 +1,6 @@
-import { _decorator, Vec2, tween, Vec3 } from 'cc';
+import { _decorator, Vec2 } from 'cc';
 import { BaseBullet } from './BaseBullet';
-import { RoomManager } from './RoomManager';
+import { RoomManager } from '../../Room/RoomManager';
 import { BulletController } from './BulletController';
 const { ccclass } = _decorator;
 

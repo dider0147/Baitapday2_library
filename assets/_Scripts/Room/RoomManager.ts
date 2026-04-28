@@ -1,14 +1,14 @@
-import { _decorator, Button, Component, director, UITransform } from 'cc';
-import { RoomState } from './GameData';
-import { CharacterController } from './CharacterController';
+import { _decorator, Component, director, UITransform } from 'cc';
+import { RoomState } from '../GameData';
+import { CharacterController } from './Character/CharacterController';
 import { ClockTimer } from './ClockTimer';
-import { GameEventData, GameState } from './GameEventData';
-import { PopupManager } from './PopupManager';
-import { PopupPause } from './PopupPause';
-import { PopupSetting } from './PopupSetting';
-import { GameManager } from './GameManager';
-import { UIScoreBoard } from './UIScoreBoard';
-import { UIPopupWin } from './UIPopupWin';
+import { GameEventData, GameState } from '../GameEventData';
+import { PopupManager } from '../Popup/PopupManager';
+import { PopupPause } from '../Popup/PopupPause';
+import { PopupSetting } from '../Popup/PopupSetting';
+import { GameManager } from '../GameManager';
+import { UIScoreBoard } from '../Popup/UIScoreBoard';
+import { UIPopupWin } from '../Popup/UIPopupWin';
 const { ccclass, property } = _decorator;
 
 @ccclass('RoomManager')

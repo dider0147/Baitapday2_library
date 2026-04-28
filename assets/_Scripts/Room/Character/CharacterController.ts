@@ -1,7 +1,7 @@
 import { _decorator, Component, director, Vec2, Node } from 'cc';
 import { Character } from './Character';
-import { GameEventData } from './GameEventData';
-import { PlayerState } from './GameData';
+import { GameEventData } from '../../GameEventData';
+import { PlayerState } from '../../GameData';
 const { ccclass, property } = _decorator;
 
 @ccclass('CharacterController')

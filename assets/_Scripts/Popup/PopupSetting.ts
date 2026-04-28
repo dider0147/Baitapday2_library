@@ -1,7 +1,7 @@
 import { _decorator, Button, director, Sprite, SpriteFrame } from 'cc';
 import { UIBasePopup } from './UIBasePopup';
 import { PopupManager } from './PopupManager';
-import { AudioManager } from './AudioManager';
+import { AudioManager } from '../AudioManager';
 const { ccclass, property } = _decorator;
 
 @ccclass('PopupSetting')

@@ -1,8 +1,8 @@
 import { _decorator, Button, Component } from 'cc';
-import { GameManager } from './GameManager';
-import { GameState } from './GameData';
-import { PopupManager } from './PopupManager';
-import { PopupSetting } from './PopupSetting';
+import { GameManager } from '../GameManager';
+import { GameState } from '../GameData';
+import { PopupManager } from '../Popup/PopupManager';
+import { PopupSetting } from '../Popup/PopupSetting';
 const { ccclass, property } = _decorator;
 
 @ccclass('LobbyManager')

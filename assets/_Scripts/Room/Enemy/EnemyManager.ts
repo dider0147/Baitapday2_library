@@ -1,8 +1,8 @@
 import { _decorator, director, Node, Prefab, Vec3 } from 'cc';
-import { BasePooling } from './BasePooling';
-import { RoomManager } from './RoomManager';
-import { RoomState } from './GameData';
-import { GameEventData } from './GameEventData';
+import { BasePooling } from '../BasePooling';
+import { RoomManager } from '../RoomManager';
+import { RoomState } from '../../GameData';
+import { GameEventData } from '../../GameEventData';
 const { ccclass, property } = _decorator;
 
 @ccclass('EnemyManager')

@@ -1,5 +1,4 @@
 import { _decorator, AudioClip, AudioSource, Component } from 'cc';
-import { GameEventData } from './GameEventData';
 const { ccclass, property } = _decorator;
 
 @ccclass('AudioManager')

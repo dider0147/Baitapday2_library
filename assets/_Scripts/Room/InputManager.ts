@@ -1,7 +1,7 @@
 import { _decorator, Component, director, EventKeyboard, Input, input, KeyCode, Vec2 } from 'cc';
-import { GameEventData } from './GameEventData';
+import { GameEventData } from '../GameEventData';
 import { RoomManager } from './RoomManager';
-import { RoomState } from './GameData';
+import { RoomState } from '../GameData';
 const { ccclass } = _decorator;
 
 @ccclass('InputManager')

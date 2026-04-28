@@ -1,8 +1,8 @@
-import { _decorator, Prefab, Vec2, UITransform, Vec3 } from 'cc';
-import { BasePooling } from './BasePooling';
+import { _decorator, Prefab, Vec2, Vec3 } from 'cc';
+import { BasePooling } from '../BasePooling';
 import { BaseBullet } from './BaseBullet';
 
-const { ccclass, property } = _decorator;
+const { ccclass } = _decorator;
 
 @ccclass('BulletController')
 export class BulletController extends BasePooling {

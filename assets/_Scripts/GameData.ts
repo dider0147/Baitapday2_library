@@ -9,7 +9,12 @@ export interface IAnimMixConfig {
     to: string;
     duration: number;
 }
-export class CharacterData{
+export class GameData {
+    public static readonly SCENE_LOADING = "loading";
+    public static readonly SCENE_LOBBY = "lobby";
+    public static readonly SCENE_ROOM = "room";
+}
+export class CharacterData {
     public static readonly ANIM_PORTAL = "portal";
     public static readonly ANIM_IDLE = "idle";
     public static readonly ANIM_WALK = "walk";

@@ -7,6 +7,9 @@ export class GameEventData {
     public static readonly ENEMY_HIT = "enemy hit";
 
     public static readonly ROOM_END = "room end";
+
+    public static readonly SETTING_BGM = "setting bgm";
+    public static readonly SETTING_SFX = "setting sfx";
 }
 
 export enum GameState {

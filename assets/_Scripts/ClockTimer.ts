@@ -14,7 +14,7 @@ export class ClockTimer extends Component {
     private currentTime: number = 0;
 
     protected onEnable() {
-        this.timeSprite.fillRange = 0;
+        this.timeSprite.fillRange = 1;
     }
 
     protected update(dt: number) {

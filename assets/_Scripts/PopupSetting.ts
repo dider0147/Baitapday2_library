@@ -1,6 +1,7 @@
 import { _decorator, Button, director, Sprite, SpriteFrame } from 'cc';
 import { UIBasePopup } from './UIBasePopup';
 import { PopupManager } from './PopupManager';
+import { AudioManager } from './AudioManager';
 const { ccclass, property } = _decorator;
 
 @ccclass('PopupSetting')
@@ -36,10 +37,12 @@ export class PopupSetting extends UIBasePopup {
 
     private onClickMuteBGM() {
         this.isMuteBGM = !this.isMuteBGM;
+        AudioManager.instance.toggleBGMAudio(this.isMuteBGM);
         this.bgmSprite.spriteFrame = this.isMuteBGM ? this.muteBGMSprite : this.unmuteBGMSprite;
     }
     private onClickMuteSFX() {
         this.isMuteSFX = !this.isMuteSFX;
+        AudioManager.instance.toggleSFXAudio(this.isMuteSFX);
         this.sfxSprite.spriteFrame = this.isMuteSFX ? this.muteSFXSprite : this.unmuteSFXSprite;
     }
     private close() {

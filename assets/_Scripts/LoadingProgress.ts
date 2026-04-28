@@ -17,6 +17,10 @@ export class LoadingProgress extends Component {
     private progressLoading() {
         const scene = SceneManager.instance.getNextScene();
 
+        if (scene.length <= 0) {
+            return;
+        }
+
         director.preloadScene(scene, (completedCount, totalCount) => {
             let progress = completedCount / totalCount;
             
@@ -25,7 +29,10 @@ export class LoadingProgress extends Component {
             this.progressText.string = `Loading: ${Math.round(progress * 100)}%`;
 
         }, () => {
-            director.loadScene(scene);
+            this.scheduleOnce(() => {
+                director.loadScene(scene);
+            }, 1);
+            
         });
     }
 }

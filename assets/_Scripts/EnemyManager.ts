@@ -19,7 +19,7 @@ export class EnemyManager extends BasePooling {
 
     public static instance: EnemyManager = null;
 
-    private readonly SPAWN_TIME_THRESHOD = 3;
+    private readonly SPAWN_TIME_THRESHOD = 2;
 
     protected onLoad() {
         EnemyManager.instance = this;

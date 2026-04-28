@@ -1,14 +1,10 @@
-import { _decorator, Component, Node } from 'cc';
-import { GameState } from './GameData';
+import { _decorator, Component, director, Node } from 'cc';
+import { GameData, GameState } from './GameData';
+import { SceneManager } from './SceneManager';
 const { ccclass, property } = _decorator;
 
 @ccclass('GameManager')
 export class GameManager extends Component {
-
-    @property(Node)
-    private lobby: Node = null;
-    @property(Node)
-    private room: Node = null;
 
     private state: GameState = null;
 
@@ -19,6 +15,7 @@ export class GameManager extends Component {
     }
 
     protected start() {
+        director.addPersistRootNode(this.node);
         this.setState(GameState.lobby);
     }
 
@@ -28,14 +25,10 @@ export class GameManager extends Component {
         }
         switch(state) {
             case GameState.lobby:
-                this.lobby.active = true;
-                this.room.active = false;
-                console.log("bully 1");
+                SceneManager.instance.loadNextScene(GameData.SCENE_LOBBY);
                 break;
             case GameState.room:
-                this.lobby.active = false;
-                this.room.active = true
-                console.log("bully 1");
+                SceneManager.instance.loadNextScene(GameData.SCENE_ROOM);
                 break;
         }
         this.state = state;

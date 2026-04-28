@@ -1,7 +1,8 @@
-import { _decorator, Color, color, Component, director, Node, RigidBody2D, Sprite, tween, Vec2 } from 'cc';
+import { _decorator, Color, Component, director, ProgressBar, RigidBody2D, Sprite, tween, Vec2 } from 'cc';
 import { EnemyManager } from './EnemyManager';
 import { RoomManager } from './RoomManager';
 import { GameEventData } from './GameEventData';
+import { AudioManager } from './AudioManager';
 const { ccclass, property } = _decorator;
 
 @ccclass('BaseEnemy')
@@ -10,6 +11,8 @@ export class BaseEnemy extends Component {
     private rb: RigidBody2D = null;
     @property(Sprite)
     private sprite: Sprite = null;
+    @property(ProgressBar)
+    private hpBar = null;
     @property
     private speed: number = 0;
     @property
@@ -23,6 +26,7 @@ export class BaseEnemy extends Component {
 
     protected onEnable() {
         this.currentHP = this.maxHP;
+        this.hpBar.progress = 1;
         this.move();
     }
 
@@ -46,6 +50,7 @@ export class BaseEnemy extends Component {
 
     public hit(damage: number) {
         this.currentHP -= damage;
+        this.updateProgressBar();
         this.flashRed();
         if (this.currentHP <= 0) {
             this.die();
@@ -59,8 +64,15 @@ export class BaseEnemy extends Component {
             .to(0.1, {color: Color.WHITE})
             .start();
     }
-
+    private updateProgressBar() {
+        tween(this.hpBar).stop();
+        tween(this.hpBar)
+            .to(0.1, {progress: this.calculateHPBar()})
+            .start();
+    }
+    private calculateHPBar = () => this.currentHP / this.maxHP;
     private die() {
+        AudioManager.instance.playSFXSound();
         this.reset();
         RoomManager.instance.updateScore(this.point);
     }

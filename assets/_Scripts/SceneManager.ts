@@ -1,4 +1,5 @@
 import { _decorator, Component, director } from 'cc';
+import { GameData } from './GameData';
 const { ccclass, property } = _decorator;
 
 @ccclass('SceneManager')
@@ -14,7 +15,7 @@ export class SceneManager extends Component {
     public loadNextScene(scene: string) {
         this.nextScene = scene;
 
-        director.loadScene("loading")
+        director.loadScene(GameData.SCENE_LOADING);
     }
 
     public getNextScene = () => this.nextScene;

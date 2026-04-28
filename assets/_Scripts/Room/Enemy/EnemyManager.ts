@@ -60,5 +60,8 @@ export class EnemyManager extends BasePooling {
     public reset() {
         this.currentSpawnTime = 0;
     }
+    protected onDestroy() {
+        EnemyManager.instance = null;
+    }
 }
 

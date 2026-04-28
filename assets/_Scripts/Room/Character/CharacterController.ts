@@ -81,6 +81,7 @@ export class CharacterController extends Component {
     }
     protected onDestroy() {
         this.unregister();
+        CharacterController.instance = null;
     }
 }
 

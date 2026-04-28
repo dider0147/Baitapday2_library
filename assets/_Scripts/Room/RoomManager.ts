@@ -84,6 +84,7 @@ export class RoomManager extends Component {
     public getCanvas = () => this.canvas;
     protected onDisable() {
         this.reset();
+        RoomManager.instance = null;
     }
 }
 

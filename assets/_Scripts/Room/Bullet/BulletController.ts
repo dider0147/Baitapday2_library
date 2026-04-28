@@ -21,6 +21,10 @@ export class BulletController extends BasePooling {
         let script = bulletNode.getComponent(BaseBullet as any) as BaseBullet;
         script.fire(dir);
     }
+
+    protected onDestroy() {
+        BulletController.instance = null;
+    }
 }
 
 

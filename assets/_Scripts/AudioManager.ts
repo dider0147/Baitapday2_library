@@ -18,9 +18,6 @@ export class AudioManager extends Component {
 
     public toggleBGMAudio(mute: boolean) {
         this.bgmSource.volume = mute ? 0 : 1;
-        console.log(this.bgmSource.volume);
-
-        console.log(this.bgmSource.volume);
     }
     public toggleSFXAudio(mute: boolean) {
         this.sfxSource.volume = mute ? 0 : 1;

@@ -4,11 +4,8 @@ import { CharacterController } from './Character/CharacterController';
 import { ClockTimer } from './ClockTimer';
 import { GameEventData, GameState } from '../GameEventData';
 import { PopupManager } from '../Popup/PopupManager';
-import { PopupPause } from '../Popup/PopupPause';
-import { PopupSetting } from '../Popup/PopupSetting';
 import { GameManager } from '../GameManager';
 import { UIScoreBoard } from '../Popup/UIScoreBoard';
-import { UIPopupWin } from '../Popup/UIPopupWin';
 const { ccclass, property } = _decorator;
 
 @ccclass('RoomManager')
@@ -30,8 +27,8 @@ export class RoomManager extends Component {
     protected onLoad() {
         RoomManager.instance = this;
     }
-    protected onEnable() {
-        this.setState(RoomState.ready);
+    protected start() {
+        this.onRestart();
     }
     public setState(state: RoomState) {
         if (this.currentState && this.currentState == state) {
@@ -48,17 +45,17 @@ export class RoomManager extends Component {
                 this.reset();
                 GameManager.instance.setState(GameState.lobby);
                 break;
-            case RoomState.restart:
-                this.reset();
-                this.setState(RoomState.ready);
-                break;
             case RoomState.win:
                 director.pause();
                 PopupManager.instance.onShowPopupWin();
                 break;
         }
         this.currentState = state;
-        console.log(this.currentState);
+        console.log("current state: " + this.currentState.toString());
+    }
+    public onRestart() {
+        this.reset();
+        this.setState(RoomState.ready);
     }
     public updateScore(score: number) {
         this.currentScore += score;
@@ -69,6 +66,7 @@ export class RoomManager extends Component {
         this.currentState = null;
         this.currentScore = 0;
         this.scoreBoard.displayUIScore(0);
+        this.clockTimer.init(this.gameplayTime);
     }
     private pause() {
         PopupManager.instance.onShowPopupPause();

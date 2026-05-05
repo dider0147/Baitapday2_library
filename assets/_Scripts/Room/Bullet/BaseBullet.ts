@@ -14,16 +14,24 @@ export abstract class BaseBullet extends Component {
     @property(Collider2D)
     protected collider: Collider2D = null;
 
+    protected ID = 0;
+
+    public init(ID: number) {
+        this.ID = ID;
+    }
+
     protected start() {
         this.collider.on(Contact2DType.BEGIN_CONTACT, this.onBeginContact, this);
     }
     
     public abstract fire(direction: Vec2);
 
+    public getID = () => this.ID;
+
     protected onBeginContact(selfCollider: Collider2D, otherCollider: Collider2D, contact: IPhysics2DContact | null) {
         const enemyScript = otherCollider.getComponent(BaseEnemy);
         enemyScript.hit(this.damage);
-        BulletController.instance.return(this.node);
+        BulletController.instance.return(this.node.name, this.ID);
     }
 }
 

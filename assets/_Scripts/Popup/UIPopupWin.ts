@@ -33,7 +33,8 @@ export class UIPopupWin extends UIBasePopup {
     private restartBttnClick() {
         director.resume();
         PopupManager.instance.onHidePopupWin();
-        RoomManager.instance.setState(RoomState.restart);
+        RoomManager.instance.onRestart();
+        
     }
     private refreshUI() {
         this.scoreLabel.string = RoomManager.instance.getScore().toString();

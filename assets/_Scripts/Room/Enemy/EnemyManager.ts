@@ -1,12 +1,14 @@
-import { _decorator, director, Node, Prefab, Vec3 } from 'cc';
+import { _decorator, director, instantiate, Node, Prefab, Vec3 } from 'cc';
 import { BasePooling } from '../BasePooling';
 import { RoomManager } from '../RoomManager';
 import { RoomState } from '../../GameData';
 import { GameEventData } from '../../GameEventData';
+import { BaseEnemy } from './BaseEnemy';
 const { ccclass, property } = _decorator;
 
 @ccclass('EnemyManager')
 export class EnemyManager extends BasePooling {
+    
     @property([Prefab])
     private enemies: Prefab[] = [];
     @property(Node)
@@ -33,8 +35,23 @@ export class EnemyManager extends BasePooling {
     protected update(dt: number) {
         this.spawnByTime(dt);
     }
-    private override init() {
-        // Initialize enemy manager if needed
+    protected get(prefab: Prefab) {
+        let prefabName = prefab.name;
+        if (!this.prefabPools.has(prefabName)) {
+            this.prefabPools.set(prefabName, []);
+        }
+        let list = this.prefabPools.get(prefabName)!;
+        let result: Node = null;
+        result = list.find(node => !node.activeInHierarchy);
+        if (result) {
+            result.active = true;
+        } else {
+            result = instantiate(prefab);
+            list.push(result);
+            result.name = prefabName;
+            result.getComponent(BaseEnemy).init(list.length);
+        }
+        return result;
     }
     public spawnByTime(dt: number) {
         if (RoomManager.instance.getState() != RoomState.start) {
@@ -60,8 +77,13 @@ export class EnemyManager extends BasePooling {
     private getRandomRange(min: number, max: number) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
-    public return(name: String, ID: number) {
-        
+    public return(name: string, ID: number) {
+        let list = this.prefabPools.get(name)!;
+        const enemyNode = list.find(node => node.getComponent(BaseEnemy).getID() === ID);
+        if (enemyNode) {
+            enemyNode.active = false;
+            //list.push(enemyNode);
+        }
     }
     public reset() {
         this.currentSpawnTime = 0;

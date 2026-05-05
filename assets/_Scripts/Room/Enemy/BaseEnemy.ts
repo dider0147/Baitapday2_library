@@ -29,7 +29,7 @@ export class BaseEnemy extends Component {
     protected onEnable() {
         this.currentHP = this.maxHP;
         this.hpBar.progress = 1;
-        this.init();
+        this.move();
     }
 
     protected start() {
@@ -39,7 +39,10 @@ export class BaseEnemy extends Component {
     protected update(dt: number) {
         this.checkLimit();
     }
-    private init() {
+    public init(ID: number) {
+        this.ID = ID;
+    }
+    private move() {
         const leftDir = new Vec2(-1, 0);
         this.rb.linearVelocity = leftDir.multiplyScalar(this.speed);
     }
@@ -54,9 +57,6 @@ export class BaseEnemy extends Component {
         this.currentHP -= damage;
         this.updateProgressBar();
         this.flashRed();
-        if (this.currentHP <= 0) {
-            this.die();
-        }
     }
 
     private flashRed() {
@@ -69,7 +69,12 @@ export class BaseEnemy extends Component {
     private updateProgressBar() {
         tween(this.hpBar).stop();
         tween(this.hpBar)
-            .to(0.1, {progress: this.calculateHPBar()})
+            .to(0.2, {progress: this.calculateHPBar()})
+            .call(() => {
+                if (this.currentHP <= 0) {
+                    this.die();
+                }
+            })
             .start();
     }
     private calculateHPBar = () => this.currentHP / this.maxHP;

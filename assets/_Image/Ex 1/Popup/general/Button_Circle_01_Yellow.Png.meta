@@ -11,7 +11,7 @@
     "6c48a": {
       "importer": "texture",
       "uuid": "8541979e-f8af-4322-a58d-16f07c6a9b53@6c48a",
-      "displayName": "Button_Circle_01_Yellow",
+      "displayName": "Button_Circle_01_Yellow.Png",
       "id": "6c48a",
       "name": "texture",
       "userData": {
@@ -35,7 +35,7 @@
     "f9941": {
       "importer": "sprite-frame",
       "uuid": "8541979e-f8af-4322-a58d-16f07c6a9b53@f9941",
-      "displayName": "Button_Circle_01_Yellow",
+      "displayName": "Button_Circle_01_Yellow.Png",
       "id": "f9941",
       "name": "spriteFrame",
       "userData": {

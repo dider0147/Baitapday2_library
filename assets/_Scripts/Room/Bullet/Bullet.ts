@@ -12,14 +12,14 @@ export class Bullet extends BaseBullet {
 
     protected start() {
         super.start();
-        this.init();
     }
 
     protected update(dt: number) {
         this.checkLimit(dt);
     }
 
-    private init() {
+    public init(ID: number) {
+        super.init(ID);
         const canvas = RoomManager.instance.getCanvas();
         this.limitX = canvas.contentSize.width / 2;
         this.limitY = canvas.contentSize.height / 2;
@@ -35,7 +35,7 @@ export class Bullet extends BaseBullet {
         let nextY = this.node.position.y + this.speed * this.direction.y * dt;
         const isInScreen = nextX < this.limitX && nextX > -this.limitX && nextY < this.limitY && nextY > -this.limitY
         if (!isInScreen) {
-            BulletController.instance.return(this.node);
+            BulletController.instance.return(this.node.name, this.ID);
         }
     }
     

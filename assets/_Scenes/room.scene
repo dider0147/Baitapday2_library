@@ -1680,7 +1680,7 @@
       "b": 0,
       "a": 255
     },
-    "_string": "60",
+    "_string": "0",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
     "_actualFontSize": 50,
@@ -2790,7 +2790,7 @@
     "canvas": {
       "__id__": 82
     },
-    "gameplayTime": 60,
+    "gameplayTime": 90,
     "clockTimer": {
       "__id__": 47
     },

@@ -1,4 +1,4 @@
-import { _decorator, Component, director, Label, ProgressBar } from 'cc';
+import { _decorator, Component, director, Label, ProgressBar, Tween, tween } from 'cc';
 import { SceneManager } from '../SceneManager';
 import { GameData } from '../GameData';
 const { ccclass, property } = _decorator;
@@ -20,8 +20,11 @@ export class LoadingProgress extends Component {
 
         director.preloadScene(scene, (completedCount, totalCount) => {
             let progress = completedCount / totalCount;
-            
-            this.loadingBar.progress = progress;
+
+            Tween.stopAllByTarget(this.loadingBar);
+            tween(this.loadingBar)
+                .to(0.2, {progress: progress})
+                .start();
             
             this.progressText.string = `Loading: ${Math.round(progress * 100)}%`;
 

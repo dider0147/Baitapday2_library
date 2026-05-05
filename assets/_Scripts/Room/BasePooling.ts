@@ -8,24 +8,7 @@ export abstract class BasePooling extends Component {
     protected layer: UITransform = null;
     protected prefabPools: Map<string, Node[]> = new Map();
 
-    public abstract init();
-
-    public get(prefab: Prefab) {
-        let prefabName = prefab.name;
-        if (!this.prefabPools.has(prefabName)) {
-            this.prefabPools.set(prefabName, []);
-        }
-        let list = this.prefabPools.get(prefabName)!;
-        let result: Node = null;
-        if (list.length > 0) {
-            result = list.pop()!;
-            result.active = true;
-        } else {
-            result = instantiate(prefab);
-            result.name = prefabName;
-        }
-        return result;
-    }
-    public abstract return(name: String, ID: number);
+    protected abstract get(prefab: Prefab);
+    public abstract return(name: string, ID: number);
 }
 

@@ -47,7 +47,7 @@ export class PopupSetting extends UIBasePopup {
     }
     private close() {
         director.resume();
-        PopupManager.instance.hide(PopupSetting);
+        PopupManager.instance.onHidePopupSetting();
     }
     private unregister() {
         this.muteBGM.node.off(Button.EventType.CLICK, this.onClickMuteBGM, this);

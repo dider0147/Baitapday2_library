@@ -54,7 +54,7 @@ export class RoomManager extends Component {
                 break;
             case RoomState.win:
                 director.pause();
-                PopupManager.instance.show(UIPopupWin);
+                PopupManager.instance.onShowPopupWin();
                 break;
         }
         this.currentState = state;
@@ -71,11 +71,11 @@ export class RoomManager extends Component {
         this.scoreBoard.displayUIScore(0);
     }
     private pause() {
-        PopupManager.instance.show(PopupPause);
+        PopupManager.instance.onShowPopupPause();
         director.pause();
     }
     private setting() {
-        PopupManager.instance.show(PopupSetting);
+        PopupManager.instance.onShowPopupSetting();
         director.pause();
     }
 

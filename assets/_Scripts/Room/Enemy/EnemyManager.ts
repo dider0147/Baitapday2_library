@@ -19,7 +19,7 @@ export class EnemyManager extends BasePooling {
 
     public static instance: EnemyManager = null;
 
-    private readonly SPAWN_TIME_THRESHOD = 2;
+    private readonly SPAWN_TIME_THRESHOD = 1;
 
     protected onLoad() {
         EnemyManager.instance = this;
@@ -32,6 +32,9 @@ export class EnemyManager extends BasePooling {
 
     protected update(dt: number) {
         this.spawnByTime(dt);
+    }
+    private override init() {
+        // Initialize enemy manager if needed
     }
     public spawnByTime(dt: number) {
         if (RoomManager.instance.getState() != RoomState.start) {
@@ -56,6 +59,9 @@ export class EnemyManager extends BasePooling {
     }
     private getRandomRange(min: number, max: number) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+    public return(name: String, ID: number) {
+        
     }
     public reset() {
         this.currentSpawnTime = 0;

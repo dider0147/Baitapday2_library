@@ -20,12 +20,12 @@ export class QuitPopup extends UIBasePopup {
 
     confirmQuitButtonClick() {
         director.resume();
-        PopupManager.instance.hide(QuitPopup);
+        PopupManager.instance.onHideQuitPopup();
         RoomManager.instance.setState(RoomState.end);
     }
     cancelQuitButtonClick() {
-        PopupManager.instance.show(PopupPause);
-        PopupManager.instance.hide(QuitPopup);
+        PopupManager.instance.onHideQuitPopup();
+        PopupManager.instance.onShowPopupPause();
     }
 
     protected onDestroy() {

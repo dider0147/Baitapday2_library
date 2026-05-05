@@ -49,6 +49,7 @@ export class Character extends Component {
         const shouldFlip = (!this.isLeftFace && velocity.x < 0) || (this.isLeftFace && velocity.x > 0);
         if (shouldFlip) {
             this.flip();
+            this.spine.setEventListener
         }
     }
 

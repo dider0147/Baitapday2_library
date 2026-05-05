@@ -28,7 +28,7 @@ export class LobbyManager extends Component {
         GameManager.instance.setState(GameState.room);
     }
     private onSettingClickBtn() {
-        PopupManager.instance.show(PopupSetting);
+        PopupManager.instance.onShowPopupSetting();
     }
     private onQuitClickButton() {
         window.close();

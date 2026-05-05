@@ -26,13 +26,13 @@ export class UIPopupWin extends UIBasePopup {
 
     private quitBttnClick() {
         director.resume();
-        PopupManager.instance.hide(UIPopupWin);
+        PopupManager.instance.onHidePopupWin();
         RoomManager.instance.setState(RoomState.end);
         console.log("popup " + RoomManager.instance.getState());
     }
     private restartBttnClick() {
         director.resume();
-        PopupManager.instance.hide(UIPopupWin);
+        PopupManager.instance.onHidePopupWin();
         RoomManager.instance.setState(RoomState.restart);
     }
     private refreshUI() {

@@ -52,6 +52,3 @@ export enum PlayerType {
 export enum PlayerState {
     NONE, PORTAL, IDLE, MOVE, ATTACK, DEATH
 }
-
-
-

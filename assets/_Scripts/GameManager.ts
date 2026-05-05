@@ -16,7 +16,7 @@ export class GameManager extends Component {
 
     protected start() {
         director.addPersistRootNode(this.node);
-        this.setState(GameState.lobby);
+        this.state = !this.state ? GameState.lobby : this.state;
     }
 
     public setState(state: GameState) {

@@ -907,7 +907,7 @@
     "spawnNode": {
       "__id__": 21
     },
-    "attackCD": 0.5,
+    "attackCD": 0.2,
     "_id": "a7KdgM9GtPLp0NVnvbFTq/"
   },
   {
@@ -2653,7 +2653,7 @@
       "b": 255,
       "a": 255
     },
-    "_string": "",
+    "_string": "0",
     "_horizontalAlign": 2,
     "_verticalAlign": 1,
     "_actualFontSize": 50,

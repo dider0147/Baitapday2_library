@@ -1,5 +1,6 @@
 import { _decorator, Component, director, Label, ProgressBar } from 'cc';
 import { SceneManager } from '../SceneManager';
+import { GameData } from '../GameData';
 const { ccclass, property } = _decorator;
 
 @ccclass('LoadingProgress')
@@ -15,11 +16,7 @@ export class LoadingProgress extends Component {
     }
 
     private progressLoading() {
-        const scene = SceneManager.instance.getNextScene();
-
-        if (scene.length <= 0) {
-            return;
-        }
+        const scene = SceneManager.instance ? SceneManager.instance.getNextScene() : GameData.SCENE_LOBBY;
 
         director.preloadScene(scene, (completedCount, totalCount) => {
             let progress = completedCount / totalCount;

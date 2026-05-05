@@ -8,6 +8,8 @@ export abstract class BasePooling extends Component {
     protected layer: UITransform = null;
     protected prefabPools: Map<string, Node[]> = new Map();
 
+    public abstract init();
+
     public get(prefab: Prefab) {
         let prefabName = prefab.name;
         if (!this.prefabPools.has(prefabName)) {
@@ -24,13 +26,6 @@ export abstract class BasePooling extends Component {
         }
         return result;
     }
-    public return(node: Node) {
-        let prefabName = node.name;
-        if (!this.prefabPools.has(prefabName)) {
-            this.prefabPools.set(prefabName, []);
-        }
-        node.active = false;
-        this.prefabPools.get(prefabName)!.push(node);
-    }
+    public abstract return(name: String, ID: number);
 }
 

@@ -17,11 +17,11 @@ export class PopupPause extends UIBasePopup {
     }
     resumeClick() {
         director.resume();
-        PopupManager.instance.hide(PopupPause);
+        PopupManager.instance.onHidePopupPause();
     }
     quitButtonClick() {
-        PopupManager.instance.show(QuitPopup);
-        PopupManager.instance.hide(PopupPause);
+        PopupManager.instance.onHidePopupPause();
+        PopupManager.instance.onShowQuitPopup();
     }
 
     protected onDestroy() {

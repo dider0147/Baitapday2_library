@@ -24,10 +24,12 @@ export class BaseEnemy extends Component {
 
     private limitX = 0;
 
+    private ID = 0;
+
     protected onEnable() {
         this.currentHP = this.maxHP;
         this.hpBar.progress = 1;
-        this.move();
+        this.init();
     }
 
     protected start() {
@@ -37,14 +39,14 @@ export class BaseEnemy extends Component {
     protected update(dt: number) {
         this.checkLimit();
     }
-    private move() {
+    private init() {
         const leftDir = new Vec2(-1, 0);
         this.rb.linearVelocity = leftDir.multiplyScalar(this.speed);
     }
 
     private checkLimit() {
         if (this.node.position.x < -this.limitX) {
-            EnemyManager.instance.return(this.node);
+            EnemyManager.instance.return(this.node.name, this.ID);
         }
     }
 
@@ -76,9 +78,10 @@ export class BaseEnemy extends Component {
         this.reset();
         RoomManager.instance.updateScore(this.point);
     }
+    public getID = () => this.ID;
     public reset() {
         this.rb.linearVelocity = Vec2.ZERO;
-        EnemyManager.instance.return(this.node);
+        EnemyManager.instance.return(this.node.name, this.ID);
     }
     protected onDestroy(): void {
         director.off(GameEventData.ROOM_END, this.reset, this);
